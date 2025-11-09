@@ -1,3 +1,23 @@
+<!-- How The Code Structure Should Be looked Like
+
+  <body class="flex flex-col min-h-screen bg-[#FBFCF6]">
+
+    <header>
+      *[navbar code is in the header]*
+    </header>
+
+    <main class="flex-grow">
+        *[write your code here in the main]*
+    </main>
+
+    <footer>
+      *[footer code]*
+    </footer>
+
+  </body>
+
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,21 +62,19 @@
     </style>
   </head>
 
-  <body class="bg-[#FBFCF6] text-gray-800">
-    <!-- Mobile Menu Checkbox (placed at body level) -->
+  <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
+    <!-- navbar -->
+     <!-- for mobile responsive navbar -->
     <input type="checkbox" id="menu-toggle" class="hidden" />
 
-    <!-- Overlay (at body level) -->
     <label
       for="menu-toggle"
       class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
     ></label>
 
-    <!-- Mobile Sidebar Menu (at body level) -->
     <div
       class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
     >
-      <!-- Close Button -->
       <div
         class="flex justify-between items-center p-6 border-b border-gray-200"
       >
@@ -81,7 +99,6 @@
         </label>
       </div>
 
-      <!-- links -->
       <div>
         <a
           href="#"
@@ -103,7 +120,7 @@
           class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
           >Do's & Don'ts</a
         >
-        <!-- profile -->
+
         <a
           href="#"
           class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium"
@@ -126,21 +143,19 @@
       </div>
     </div>
 
-    <!-- Navbar Component -->
+    <!-- Navbar for large screen -->
     <header>
       <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
         <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-20">
-            <!-- logo -->
             <div class="flex items-center gap-3">
               <img
-                src="../public/assets/logo-phnompenh-compass.svg"
+                src="../public/assets/phnompenh-compass-logo.svg"
                 alt="Phnom Penh Compass Logo"
                 class="h-auto w-auto"
               />
             </div>
 
-            <!-- links -->
             <div class="hidden md:flex items-center space-x-8">
               <a
                 href="#"
@@ -164,7 +179,6 @@
               >
             </div>
 
-            <!-- user icon -->
             <div class="hidden md:flex items-center">
               <a
                 href="#"
@@ -182,7 +196,6 @@
               </a>
             </div>
 
-            <!-- mobile menu toggle -->
             <div class="md:hidden">
               <label
                 for="menu-toggle"
@@ -208,14 +221,167 @@
       </nav>
     </header>
 
-    <!-- Demo content -->
-    <div class="max-w-7xl mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">
-        Welcome to Phnom Penh
-      </h2>
-      <p class="text-gray-600">
-        Your trusted guide to exploring Cambodia's vibrant capital city.
-      </p>
-    </div>
+    <!-- content body  -->
+    <main class="flex-row">
+      <section class="max-w-5xl mx-auto text-center py-16">
+        <h1 class="text-4xl font-bold text-[#1C3F5E]">Welcome to Phnom Penh</h1>
+        <p class="text-gray-600 mt-3">
+          Your trusted guide to exploring Cambodia's vibrant capital city.
+        </p>
+      </section>
+    </main>
+
+
+<!-- footer -->
+    <footer
+      class="bg-[url('../public/assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat bottom-0"
+    >
+      <div class="bg-[#202D45]/60 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="flex flex-col items-start text-center sm:text-left">
+              <img
+                src="../public/assets/footer-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto mx-auto sm:mx-0"
+              />
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Explore Phnom Penh
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#cafes" class="hover:text-[#DFB777] transition"
+                    >Cafés & Restaurants</a
+                  >
+                </li>
+                <li>
+                  <a href="#museums" class="hover:text-[#DFB777] transition"
+                    >Museums & Tourist Sites</a
+                  >
+                </li>
+                <li>
+                  <a href="#vibe" class="hover:text-[#DFB777] transition"
+                    >Choose Your Vibe</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#DFB777] transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#dos-donts" class="hover:text-[#DFB777] transition"
+                    >Do's & Don'ts</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                About and Support
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#about" class="hover:text-[#DFB777] transition"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#DFB777] transition"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#faqs" class="hover:text-[#DFB777] transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#partnerships"
+                    class="hover:text-[#DFB777] transition"
+                    >Partnerships & Collaborations</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Stay Connected
+              </h4>
+
+              <div class="flex justify-center sm:justify-start gap-3 mb-6">
+                <a
+                  href="#facebook"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#instagram"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#email"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
+                </a>
+              </div>
+
+              <form
+                class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
+                />
+                <button
+                  type="submit"
+                  class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[#DFB777]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
+            >
+              <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
+              <div
+                class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
+              >
+                <a href="#terms" class="hover:text-[#DFB777] transition"
+                  >Term of Service</a
+                >
+                <a href="#privacy" class="hover:text-[#DFB777] transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
