@@ -1,0 +1,193 @@
+<!-- 
+   REQUIRED DEPENDENCIES in <head>:
+     - Tailwind CSS: <script src="https://cdn.tailwindcss.com"></script>
+     - Raleway Font (optional): 
+       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+     - Add this to your <style> tag:
+       body { font-family: "Raleway", sans-serif; }
+
+     NAVBAR USAGE:
+      1. Paste this code after <body> tag
+      2. Need Tailwind CSS in <head>: <script src="https://cdn.tailwindcss.com"></script>
+      3. Copy <style> block (at bottom) to your <head> section
+-->
+
+<!-- Mobile Menu Checkbox -->
+<input type="checkbox" id="menu-toggle" class="hidden" />
+
+<!-- Overlay -->
+<label
+  for="menu-toggle"
+  class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
+></label>
+
+<!-- Mobile Sidebar Menu -->
+<div
+  class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
+>
+  <!-- Close Button -->
+  <div class="flex justify-between items-center p-6 border-b border-gray-200">
+    <h2 class="text-xl font-bold text-gray-900">Menu</h2>
+    <label
+      for="menu-toggle"
+      class="cursor-pointer text-gray-700 hover:text-gray-900"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </label>
+  </div>
+
+  <!-- Menu Links -->
+  <div class="py-4">
+    <a
+      href="#explore"
+      class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+      >Explore</a
+    >
+    <a
+      href="#vibe"
+      class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+      >Choose Your Vibe</a
+    >
+    <a
+      href="#services"
+      class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+      >Services</a
+    >
+    <a
+      href="#dos-donts"
+      class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+      >Do's & Don'ts</a
+    >
+
+    <!-- Profile Link -->
+    <a
+      href="#profile"
+      class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium mt-4"
+    >
+      <div
+        class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3"
+      >
+        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      Profile
+    </a>
+  </div>
+</div>
+
+<!-- Navbar Component -->
+<header>
+  <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
+    <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img
+            src="../public/assets/logo-phnompenh-compass.svg"
+            alt="Phnom Penh Compass Logo"
+            class="h-auto w-auto"
+          />
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#explore"
+            class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+            >Explore</a
+          >
+          <a
+            href="#vibe"
+            class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+            >Choose Your Vibe</a
+          >
+          <a
+            href="#services"
+            class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+            >Services</a
+          >
+          <a
+            href="#dos-donts"
+            class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+            >Do's & Don'ts</a
+          >
+        </div>
+
+        <!-- Desktop User Icon -->
+        <div class="hidden md:flex items-center">
+          <a
+            href="#profile"
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors"
+          >
+            <svg
+              class="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="md:hidden">
+          <label
+            for="menu-toggle"
+            class="cursor-pointer text-gray-700 hover:text-gray-900"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- 3. Copy to your <head> section -->
+<style>
+  .mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  #menu-toggle:checked ~ .menu-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #menu-toggle:checked ~ .mobile-menu {
+    transform: translateX(0);
+  }
+  .menu-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
