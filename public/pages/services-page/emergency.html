@@ -183,107 +183,203 @@
 
     <!-- content body  -->
     <main class="grow">
-      <section class="pt-20 pb-10 text-center pl-15">
-        <h1 class="text-4xl font-bold text-[#1C3F5E]">Our Services</h1>
-        <p class="text-gray-600 mt-3 text-lg max-w-2xl mx-auto">
-          Essential information to help you stay safe, informed, and prepared
-          while exploring Phnom Penh.
-        </p>
-      </section>
+      <section class="pt-20 pb-20 max-w-6xl mx-auto px-6">
+        <!-- Title -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-[#1C3F5E] mb-3">
+            Emergency Services
+          </h1>
+          <p class="text-gray-600 text-lg">
+            Immediate assistance for urgent situations
+          </p>
+        </div>
 
-      <!-- SERVICES GRID -->
-      <section
-        class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-10 pb-20 grid gap-10 md:grid-cols-2 sm:grid-cols-1 place-items-center"
-      >
-        <!-- Emergency Contacts -->
-        <a
-          href="emergency.html"
-          class="bg-[#D9624E] w-full shadow-md hover:shadow-lg transition rounded-xl p-10 md:p-15 border border-gray-200 hover:border-[#be924b] flex items-center gap-10 lg:gap-6 lg:py-100"
-        >
-          <!-- Icon wrapper -->
-          <div class="shrink-0">
-            <img
-              src="/public/assets/services/emergency-icon.png"
-              alt="Embassies Icon"
-              class="sm:w-100 sm:h-100 w-20 h-20 object-contain"
-            />
+        <!-- emergency list -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <!-- Ambulance -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">AMBULANCE</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              For medical emergencies and critical injuries
+            </p>
+            <p class="text-[#d46a48] text-5xl font-bold mb-4">119</p>
+            <a
+              href="tel:119"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 119 Now
+            </a>
           </div>
 
-          <!-- Title + text -->
-          <div class="flex flex-col space-y-1 justify-center">
-            <h3 class="text-xl font-[raleway] font-semibold text-white">
-              Emergency Services
+          <!-- Fire -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">FIRE DEPARTMENT</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Report fires and hazardous situations
+            </p>
+            <p class="text-[#d46a48] text-5xl font-bold mb-4">118</p>
+            <a
+              href="tel:118"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 118 Now
+            </a>
+          </div>
+
+          <!-- Police -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">POLICE</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              For crime, assault, or theft
+            </p>
+            <p class="text-[#d46a48] text-5xl font-bold mb-4">117</p>
+            <a
+              href="tel:117"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 117 Now
+            </a>
+          </div>
+          <!-- Tourist Police -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">TOURIST POLICE</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              English-speaking assistance for tourists
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">
+              (+855) 012 942 484
+            </p>
+            <a
+              href="tel:+855012942484"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call Now
+            </a>
+          </div>
+
+          <!-- Traffic Police -->
+
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">TRAFFIC POLICE</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Road accidents, traffic enforcement
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">1286</p>
+            <a
+              href="tel:1286"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 1286
+            </a>
+          </div>
+
+          <!-- Child Protection Hotline -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">CHILD PROTECTION HOTLINE</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Report child abuse, exploitation, trafficking
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">1280</p>
+            <a
+              href="tel:1280"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 1280
+            </a>
+          </div>
+
+          <!-- Anti Human Trafficking -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              ANTI–HUMAN TRAFFICKING HOTLINE
             </h3>
-            <p class="text-gray-200 text-base">Immediate Assistance</p>
-          </div>
-        </a>
-
-        <!-- Hospitals -->
-        <a
-          href="hospitals.html"
-          class="bg-white w-full hover:shadow-inner hover:shadow-gray-300 transition rounded-xl p-10 md:p-15 border border-gray-200 hover:border-[#be924b] flex items-center gap-4 md:gap-6"
-        >
-          <!-- Icon wrapper -->
-          <div class="shrink-0">
-            <img
-              src="/public/assets/services/hospitals-icon.png"
-              alt="Embassies Icon"
-              class="sm:w-100 sm:h-100 w-20 h-20 object-contain"
-            />
+            <p class="text-gray-600 text-sm mb-4">
+              Victim rescue & reporting exploitation
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">1281</p>
+            <a
+              href="tel:1281"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 1281
+            </a>
           </div>
 
-          <!-- Title + text -->
-          <div class="flex flex-col space-y-1 justify-center">
-            <h3 class="text-xl font-[Raleway] font-semibold">
-              Hospitals & Clinics
+          <!-- Women Support Hotline -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              WOMEN & DOMESTIC VIOLENCE HOTLINE
             </h3>
-            <p class="text-gray-600 text-base">Medicals and Pharmacies</p>
-          </div>
-        </a>
-
-        <!-- Useful Apps -->
-        <a
-          href="useful-app.html"
-          class="bg-white w-full hover:shadow-inner hover:shadow-gray-300 transition rounded-xl p-10 md:p-15 border border-gray-200 hover:border-[#be924b] flex items-center gap-4 md:gap-6"
-        >
-          <!-- Icon wrapper -->
-          <div class="shrink-0">
-            <img
-              src="/public/assets/services/app-icon.png"
-              alt="Embassies Icon"
-              class="sm:w-100 sm:h-100 w-20 h-20 object-contain"
-            />
+            <p class="text-gray-600 text-sm mb-4">
+              Support for victims of violence or abuse
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">1299</p>
+            <a
+              href="tel:1299"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call 1299
+            </a>
           </div>
 
-          <!-- Title + text -->
-          <div class="flex flex-col space-y-1 justify-center">
-            <h3 class="text-xl font-[raleway] font-semibold">Useful Apps</h3>
-            <p class="text-gray-600 text-base">Transportation & Delivery</p>
-          </div>
-        </a>
-
-        <!-- Embassies & Consulates -->
-        <a
-          href="embassies.html"
-          class="bg-[#202D45] w-full shadow-md hover:shadow-lg transition rounded-xl p-10 md:p-15 border border-gray-200 hover:border-[#be924b] flex items-center gap-4 md:gap-6"
-        >
-          <!-- Icon wrapper -->
-          <div class="shrink-0">
-            <img
-              src="/public/assets/services/embassies-icon.png"
-              alt="Embassies Icon"
-              class="sm:w-100 sm:h-100 w-20 h-20 object-contain"
-            />
-          </div>
-
-          <!-- Title + text -->
-          <div class="flex flex-col space-y-1 justify-center">
-            <h3 class="text-xl font-[raleway] font-semibold text-white">
-              Embassies & Consulates
+          <!-- Cambodia Emergency Rescue -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              RESCUE & ACCIDENT RESPONSE (EMR)
             </h3>
-            <p class="text-gray-300 text-base">Diplomatic Support</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Accidents, emergency extraction & rescue
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">
+              +855 98 555 757
+            </p>
+            <a
+              href="tel:+85598555757"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call Now
+            </a>
           </div>
-        </a>
+
+          <!-- Hospital Emergency Hotline -->
+          <div
+            class="bg-white shadow-lg rounded-xl p-6 border-l-4 border-[#d46a48]"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              HOSPITAL EMERGENCY HOTLINE
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Royal Phnom Penh Hospital (24/7)
+            </p>
+            <p class="text-[#d46a48] text-3xl font-bold mb-4">
+              +855 12 991 000
+            </p>
+            <a
+              href="tel:+85512991000"
+              class="bg-[#d46a48] text-white px-6 py-2 rounded-full block text-center hover:bg-[#b5563a]"
+            >
+              Call Now
+            </a>
+          </div>
+        </div>
       </section>
     </main>
 
