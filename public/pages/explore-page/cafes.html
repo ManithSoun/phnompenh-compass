@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafes - Phnom Penh Compass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        font-family: 'Raleway', sans-serif;
+      }
+      
+      .menu-overlay {
+        display: none;
+      }
+
+      #menu-toggle:checked ~ .menu-overlay {
+        display: block;
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      #menu-toggle:checked ~ .mobile-menu {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
+    <!-- navbar -->
+    <input type="checkbox" id="menu-toggle" class="hidden" />
+
+    <label
+      for="menu-toggle"
+      class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
+    ></label>
+
+    <div
+      class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center p-6 border-b border-gray-200"
+      >
+        <h2 class="text-xl font-bold text-gray-900">Menu</h2>
+        <label
+          for="menu-toggle"
+          class="cursor-pointer text-gray-700 hover:text-gray-900"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </label>
+      </div>
+
+      <div>
+        <a
+          href="#"
+          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          >Explore</a
+        >
+        <a
+          href="#"
+          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          >Choose Your Vibe</a
+        >
+        <a
+          href="#"
+          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          >Services</a
+        >
+        <a
+          href="#"
+          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a
+          href="#"
+          class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium"
+        >
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </div>
+          Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Navbar for large screen -->
+    <header>
+      <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
+        <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-10">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center gap-3">
+              <img
+                src="../../assets/phnompenh-compass-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto"
+              />
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+              <a
+                href="#"
+                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+                >Explore</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+                >Choose Your Vibe</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+                >Services</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
+                >Do's & Don'ts</a
+              >
+            </div>
+
+            <div class="hidden md:flex items-center">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="md:hidden">
+              <label
+                for="menu-toggle"
+                class="cursor-pointer text-gray-700 hover:text-gray-900"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </label>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- content body  -->
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <a href="explore.html" class="inline-flex items-center gap-2 text-[#4A90E2] hover:text-[#3A7BC8] font-medium mb-6 transition-colors">
+          <i class="fas fa-arrow-left"></i>
+          Back to Explore
+        </a>
+        <div class="text-center">
+          <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">Cafes in Phnom Penh</h1>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            Discover the best coffee shops and cafes where you can work, relax, or meet friends in Cambodia's vibrant capital.
+          </p>
+        </div>
+      </section>
+
+      <!-- Cafes Grid Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Cafe Card 1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>Mongkol Borei</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">The Coffee House</h3>
+              <p class="text-sm text-gray-600 mb-3">Cozy atmosphere with comfortable seating and great wifi. Perfect for remote work.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Open Daily</span>
+                <span class="text-sm text-gray-500">7AM - 9PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.5)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cafe Card 2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>Riverside</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">Brew & Bites</h3>
+              <p class="text-sm text-gray-600 mb-3">Specialty coffee with riverside views. Known for their artisan pastries and breakfast menu.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Open Daily</span>
+                <span class="text-sm text-gray-500">6AM - 10PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(5.0)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cafe Card 3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>BKK1</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">Urban Bean</h3>
+              <p class="text-sm text-gray-600 mb-3">Modern workspace with high-speed internet. Popular among digital nomads and freelancers.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Open Daily</span>
+                <span class="text-sm text-gray-500">8AM - 8PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.0)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cafe Card 4 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>Russian Market</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">Garden Café</h3>
+              <p class="text-sm text-gray-600 mb-3">Beautiful outdoor seating surrounded by greenery. Pet-friendly and family-oriented.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Open Daily</span>
+                <span class="text-sm text-gray-500">7AM - 7PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.7)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cafe Card 5 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>Toul Kork</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">Espresso Central</h3>
+              <p class="text-sm text-gray-600 mb-3">Italian-style espresso bar with authentic baristas. Best espresso in town.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Mon-Sat</span>
+                <span class="text-sm text-gray-500">7AM - 6PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.9)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cafe Card 6 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span>Tonle Bassac</span>
+              </div>
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">Latte Art Studio</h3>
+              <p class="text-sm text-gray-600 mb-3">Instagram-worthy latte art and trendy interior. Great for meetings and catching up with friends.</p>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#4A90E2] font-semibold">Open Daily</span>
+                <span class="text-sm text-gray-500">8AM - 10PM</span>
+              </div>
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer
+      class="bg-[url('../../assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
+    >
+      <div class="bg-[#202D45]/60 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 sm:px-6"
+          >
+            <div
+              class="flex flex-col items-center sm:items-start text-center sm:text-left"
+            >
+              <img
+                src="../../assets/footer-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto mx-auto sm:mx-0"
+              />
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Explore Phnom Penh
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#cafes" class="hover:text-[#DFB777] transition"
+                    >Cafés & Restaurants</a
+                  >
+                </li>
+                <li>
+                  <a href="#museums" class="hover:text-[#DFB777] transition"
+                    >Museums & Tourist Sites</a
+                  >
+                </li>
+                <li>
+                  <a href="#vibe" class="hover:text-[#DFB777] transition"
+                    >Choose Your Vibe</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#DFB777] transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#dos-donts" class="hover:text-[#DFB777] transition"
+                    >Do's & Don'ts</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                About and Support
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#about" class="hover:text-[#DFB777] transition"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#DFB777] transition"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#faqs" class="hover:text-[#DFB777] transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#partnerships"
+                    class="hover:text-[#DFB777] transition"
+                    >Partnerships & Collaborations</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Stay Connected
+              </h4>
+
+              <div class="flex justify-center sm:justify-start gap-3 mb-6">
+                <a
+                  href="#facebook"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#instagram"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#email"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
+                </a>
+              </div>
+
+              <form
+                class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
+                />
+                <button
+                  type="submit"
+                  class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[#DFB777]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
+            >
+              <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
+              <div
+                class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
+              >
+                <a href="#terms" class="hover:text-[#DFB777] transition"
+                  >Term of Service</a
+                >
+                <a href="#privacy" class="hover:text-[#DFB777] transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
