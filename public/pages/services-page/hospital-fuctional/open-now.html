@@ -23,10 +23,6 @@
   </head>
 
   <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
-    <!-- MUST BE DIRECT CHILD OF BODY -->
-    <input type="radio" name="tab" id="tab-dos" class="hidden" checked />
-    <input type="radio" name="tab" id="tab-donts" class="hidden" />
-
     <!-- mobile menu toggle -->
     <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
@@ -204,264 +200,247 @@
     </header>
 
     <!-- content body -->
-    <main class="pt-40">
-      <div class="max-w-6xl mx-auto px-6 pb-24">
-        <h1 class="text-4xl font-bold text-center text-[#1C3F5E]">
-          Do’s & Don’ts
+    <main class="pt-40 pb-20 max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-[#1C3F5E] mb-2">
+          Hospitals & Clinics
         </h1>
-        <p class="text-center text-gray-600 mt-1">
-          Navigate Phnom Penh with Respect and Confidence
+        <p class="text-gray-600">
+          Trusted medical facilities and pharmacies near you
         </p>
+      </div>
 
-        <!-- radie toggles -->
-        <div class="hidden">
-          <input type="radio" name="tab" id="tab-dos" checked />
-          <input type="radio" name="tab" id="tab-donts" />
+      <!-- search bar + filter -->
+      <div
+        class="w-full mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+      >
+        <!-- search -->
+        <div class="relative w-full md:w-1/2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#be924b]"
+          />
+          <button
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
 
-        <!-- tabs header Do's and Don'ts -->
-        <div class="flex justify-center mt-10">
-          <div class="flex w-full">
-            <label
-              for="tab-dos"
-              class="tab-dos flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#BFF3D9] border border-gray-200 text-[#1C3F5E]"
+        <!-- filters -->
+        <div
+          class="flex gap-8 text-gray-600 text-sm font-medium justify-center md:justify-start"
+        >
+          <button class="hover:text-[#1C3F5E]">
+            <a href="/public/pages/index.htmll">All</a>
+          </button>
+          <button class="text-[#d4a14d] font-semibold">
+            <a
+              href="/public/pages/services-page/hospital-fuctional/open-now.html"
+              >Open now</a
             >
-              Do’s
-            </label>
+          </button>
+          <button class="hover:text-[#1C3F5E]">
+            <a
+              href="/public/pages/services-page/hospital-fuctional/open-24h.html"
+              >Open 24h</a
+            >
+          </button>
+        </div>
+      </div>
 
-            <label
-              for="tab-donts"
-              class="tab-donts flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#F7B5B5] border border-gray-200 text-[#1C3F5E]"
+      <!-- Hospital's card -->
+      <div class="space-y-10">
+        <!-- Royal Phnom Penh Hospital (24/7, rating unknown → default 4.1) -->
+        <div
+          class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
+        >
+          <img
+            src="/public/assets/services/hospitals/royal-phnom-penh-hospital.jpg"
+            class="w-full md:w-64 h-40 object-cover rounded-lg"
+            alt="Hospital"
+          />
+          <div class="flex-1">
+            <span
+              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
+              >24/7</span
             >
-              Don’ts
-            </label>
+            <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
+              Royal Phnom Penh Hospital
+            </h2>
+
+            <!-- Default rating -->
+            <div class="flex items-center gap-1 text-[#be924b] mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span class="text-gray-600 ml-2">4.1</span>
+            </div>
+
+            <p class="text-gray-700 flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-phone text-green-600"></i> +855 23 991 000 /
+              +855 12 991 000
+            </p>
+            <p class="text-gray-600 text-sm">
+              No. 888, Russian Federation Blvd, Sen Sok, Phnom Penh
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto text-center">
+            <a
+              href="tel:+85523991000"
+              class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
+            >
+            <a
+              href="https://www.google.com/maps?q=Royal+Phnom+Penh+Hospital+Phnom+Penh"
+              target="_blank"
+              class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
+            >
           </div>
         </div>
 
-        <!-- DO’S SECTION -->
-
+        <!-- Sunrise Japan Hospital (NOT 24/7 → Open Hours Vary) -->
         <div
-          class="dosSection hidden opacity-0 transition-opacity duration-200"
+          class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
-          <div class="bg-[#DDF5E7] border border-[#C5E8D5] p-10 rounded-b-xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
-              <!-- DO 1 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-hands-praying text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Greet with a “Sampeah”
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Put palms together and bow slightly to show respect.
-                </p>
-              </div>
+          <img
+            src="/public/assets/services/hospitals/sunrise-japan.jpeg"
+            class="w-full md:w-64 h-40 object-cover rounded-lg"
+          />
+          <div class="flex-1">
+            <span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
+            >
+            <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
+              Sunrise Japan Hospital
+            </h2>
 
-              <!-- do 2 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-language text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Learn simple Khmer phrases
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Locals appreciate small efforts like “Hello” or “Thank you”.
-                </p>
-              </div>
-
-              <!-- do 3 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-shoe-prints text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Remove shoes before entering homes
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always take shoes off when entering someone’s house.
-                </p>
-              </div>
-
-              <!-- do 4 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-hand-holding-heart text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Show respect to elders & monks
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Greet politely and avoid standing higher than monks.
-                </p>
-              </div>
-
-              <!-- do 5 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-tshirt text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Dress modestly at temples
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Cover shoulders & knees when visiting religious sites.
-                </p>
-              </div>
-
-              <!-- do 6 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-recycle text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Dispose trash properly
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Help keep Phnom Penh clean by using bins.
-                </p>
-              </div>
-
-              <!-- do 7 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-helmet-safety text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Wear a helmet when riding motos
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Safety first — and it's required by law.
-                </p>
-              </div>
-
-              <!-- do 8 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-handshake text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Negotiate politely
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Bargaining is normal — just keep it friendly.
-                </p>
-              </div>
-
-              <!-- do 9 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-money-bill-wave text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Carry small cash
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Many local shops only accept small bills.
-                </p>
-              </div>
+            <!-- Default rating 4.1 -->
+            <div class="flex items-center gap-1 text-[#be924b] mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span class="text-gray-600 ml-2">4.1</span>
             </div>
+
+            <p class="text-gray-700 flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-phone text-green-600"></i> +855 23 260 152 /
+              +855 78 260 152
+            </p>
+            <p class="text-gray-600 text-sm">
+              #177E, Kola Loum Street, Chroy Changvar, Phnom Penh
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto text-center">
+            <a
+              href="tel:+85523260152"
+              class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
+            >
+            <a
+              href="https://www.google.com/maps?q=Sunrise+Japan+Hospital+Phnom+Penh"
+              target="_blank"
+              class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
+            >
           </div>
         </div>
 
-        <!-- DON’TS SECTION -->
+        <!-- Intercare Hospital (24/7, rating 4.7 real) -->
         <div
-          class="dontSection hidden opacity-0 transition-opacity duration-500"
+          class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
-          <div class="bg-[#FAD4D4] border border-[#F5B8B8] rounded-b-xl p-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
-              <!-- dont 1 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-ban text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch anyone’s head
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  The head is considered sacred in Khmer culture.
-                </p>
-              </div>
+          <img
+            src="/public/assets/services/hospitals/intercare-hospital.jpg"
+            class="w-full md:w-64 h-40 object-cover rounded-lg"
+          />
+          <div class="flex-1">
+            <span
+              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
+              >24/7</span
+            >
+            <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
+              Intercare Hospital
+            </h2>
 
-              <!-- dont 2 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-shoe-prints text-5xl text-red-600 rotate-180"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t point feet at people
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Feet are seen as unclean — avoid pointing or touching.
-                </p>
-              </div>
-
-              <!-- dont 3 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-hand text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch monks (especially women)
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Physical contact with monks is inappropriate.
-                </p>
-              </div>
-
-              <!-- dont 4 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-trash text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t litter in public
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Keep the city clean and dispose trash properly.
-                </p>
-              </div>
-
-              <!-- dont 5 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-volume-high text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t raise your voice
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Loud or aggressive tone is considered rude.
-                </p>
-              </div>
-
-              <!-- dont 6 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-shoe-prints text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t enter temples with shoes
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always remove shoes at temples and sacred places.
-                </p>
-              </div>
-
-              <!-- dont 7 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-heart text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t show excessive PDA
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Public affection is not culturally accepted.
-                </p>
-              </div>
-
-              <!-- dont 8 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-gopuram text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch sacred objects
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always ask before touching religious items.
-                </p>
-              </div>
-
-              <!-- dont 9 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-angry text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t show anger in public
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Staying calm is a sign of respect in Khmer culture.
-                </p>
-              </div>
+            <!-- Rating: 4.7 -->
+            <div class="flex items-center gap-1 text-[#be924b] mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="text-gray-600 ml-2">4.7</span>
             </div>
+
+            <p class="text-gray-700 flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-phone text-green-600"></i> +855 23 996 900 /
+              +855 69 822 889
+            </p>
+            <p class="text-gray-600 text-sm">
+              Olympia Medical Hub, Street 161, 7 Makara, Phnom Penh
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto text-center">
+            <a
+              href="tel:+85523996900"
+              class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
+            >
+            <a
+              href="https://maps.app.goo.gl/sSGTYNhA3NLS8Wg39"
+              target="_blank"
+              class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
+            >
+          </div>
+        </div>
+
+        <!-- Orange Cancer Clinic (Open Hours Vary) -->
+        <div
+          class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
+        >
+          <img
+            src="/public/assets/services/hospitals/orange-cancer.jpg"
+            class="w-full md:w-64 h-40 object-cover rounded-lg"
+          />
+          <div class="flex-1">
+            <span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
+            >
+            <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
+              Clinic Orange Cancer
+            </h2>
+
+            <!-- Default rating -->
+            <div class="flex items-center gap-1 text-[#be924b] mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span class="text-gray-600 ml-2">4.1</span>
+            </div>
+
+            <p class="text-gray-700 flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-phone text-green-600"></i> +855 12 46 27 79
+            </p>
+            <p class="text-gray-600 text-sm">
+              St. 6A, Prek Leap, Chroy Changvar, Phnom Penh
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto text-center">
+            <a
+              href="tel:+85512462779"
+              class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
+            >
+            <a
+              href="https://www.google.com/maps?q=Orange+Cancer+Clinic+Phnom+Penh"
+              target="_blank"
+              class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
+            >
           </div>
         </div>
       </div>

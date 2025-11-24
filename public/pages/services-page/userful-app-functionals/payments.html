@@ -23,10 +23,6 @@
   </head>
 
   <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
-    <!-- MUST BE DIRECT CHILD OF BODY -->
-    <input type="radio" name="tab" id="tab-dos" class="hidden" checked />
-    <input type="radio" name="tab" id="tab-donts" class="hidden" />
-
     <!-- mobile menu toggle -->
     <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
@@ -203,266 +199,115 @@
       </nav>
     </header>
 
-    <!-- content body -->
-    <main class="pt-40">
-      <div class="max-w-6xl mx-auto px-6 pb-24">
-        <h1 class="text-4xl font-bold text-center text-[#1C3F5E]">
-          Do’s & Don’ts
-        </h1>
-        <p class="text-center text-gray-600 mt-1">
-          Navigate Phnom Penh with Respect and Confidence
+    <!-- Content body -->
+    <main class="pt-40 pb-24 max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-[#1C3F5E]">Useful Apps</h1>
+        <p class="text-gray-600 mt-2">
+          Essential digital tools for getting around and communicating in Phnom
+          Penh
         </p>
+      </div>
 
-        <!-- radie toggles -->
-        <div class="hidden">
-          <input type="radio" name="tab" id="tab-dos" checked />
-          <input type="radio" name="tab" id="tab-donts" />
-        </div>
+      <!-- search bar -->
+      <div class="mb-6 max-w-md mx-auto relative">
+        <input
+          type="text"
+          placeholder="Search"
+          class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#be924b] focus:outline-none"
+        />
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
 
-        <!-- tabs header Do's and Don'ts -->
-        <div class="flex justify-center mt-10">
-          <div class="flex w-full">
-            <label
-              for="tab-dos"
-              class="tab-dos flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#BFF3D9] border border-gray-200 text-[#1C3F5E]"
-            >
-              Do’s
-            </label>
-
-            <label
-              for="tab-donts"
-              class="tab-donts flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#F7B5B5] border border-gray-200 text-[#1C3F5E]"
-            >
-              Don’ts
-            </label>
-          </div>
-        </div>
-
-        <!-- DO’S SECTION -->
-
-        <div
-          class="dosSection hidden opacity-0 transition-opacity duration-200"
+      <!-- filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button
+          class="px-4 py-2 bg-gray-200 text-sm rounded-full hover:bg-gray-300"
         >
-          <div class="bg-[#DDF5E7] border border-[#C5E8D5] p-10 rounded-b-xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
-              <!-- DO 1 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-hands-praying text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Greet with a “Sampeah”
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Put palms together and bow slightly to show respect.
-                </p>
-              </div>
+          <a href="/public/pages/services-page/useful-app.html">All</a>
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-200 text-sm rounded-full hover:bg-gray-300"
+        >
+          <a href="transport.html">Transport</a>
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-200 text-sm rounded-full hover:bg-gray-300"
+        >
+          <a href="food-delivery.html">Food Delivery</a>
+        </button>
+        <button class="px-4 py-2 bg-[#1C3F5E] text-white text-sm rounded-full">
+          <a href="payments.html">Payments</a>
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-200 text-sm rounded-full hover:bg-gray-300"
+        >
+          <a href="communication.html">Communication</a>
+        </button>
+      </div>
 
-              <!-- do 2 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-language text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Learn simple Khmer phrases
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Locals appreciate small efforts like “Hello” or “Thank you”.
-                </p>
-              </div>
-
-              <!-- do 3 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-shoe-prints text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Remove shoes before entering homes
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always take shoes off when entering someone’s house.
-                </p>
-              </div>
-
-              <!-- do 4 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-hand-holding-heart text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Show respect to elders & monks
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Greet politely and avoid standing higher than monks.
-                </p>
-              </div>
-
-              <!-- do 5 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-tshirt text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Dress modestly at temples
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Cover shoulders & knees when visiting religious sites.
-                </p>
-              </div>
-
-              <!-- do 6 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-recycle text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Dispose trash properly
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Help keep Phnom Penh clean by using bins.
-                </p>
-              </div>
-
-              <!-- do 7 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-helmet-safety text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Wear a helmet when riding motos
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Safety first — and it's required by law.
-                </p>
-              </div>
-
-              <!-- do 8 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-handshake text-5xl text-[#1C3F5E]"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Negotiate politely
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Bargaining is normal — just keep it friendly.
-                </p>
-              </div>
-
-              <!-- do 9 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-money-bill-wave text-5xl text-[#1C3F5E]"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Carry small cash
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Many local shops only accept small bills.
-                </p>
-              </div>
-            </div>
-          </div>
+      <!-- app's card -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- aba Bank -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-6 hover:shadow-lg transition"
+        >
+          <img
+            src="/public/assets/services/apps/aba.jpg"
+            class="w-14 h-14 rounded-lg mb-4"
+            alt="ABA Bank"
+          />
+          <h3 class="text-lg font-semibold text-[#1C3F5E]">ABA Bank</h3>
+          <p class="text-gray-600 text-sm mt-1 mb-4">
+            Most widely used bank in Cambodia. Foreigners can open an account.
+          </p>
+          <a
+            href="https://play.google.com/store/search?q=aba&c=apps"
+            class="text-[#be924b] text-sm font-medium hover:underline"
+            >Download →</a
+          >
         </div>
 
-        <!-- DON’TS SECTION -->
+        <!-- acleda -->
         <div
-          class="dontSection hidden opacity-0 transition-opacity duration-500"
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-6 hover:shadow-lg transition"
         >
-          <div class="bg-[#FAD4D4] border border-[#F5B8B8] rounded-b-xl p-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
-              <!-- dont 1 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-ban text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch anyone’s head
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  The head is considered sacred in Khmer culture.
-                </p>
-              </div>
+          <img
+            src="/public/assets/services/apps/acleda.jpg"
+            class="w-14 h-14 rounded-lg mb-4"
+            alt="ACLEDA"
+          />
+          <h3 class="text-lg font-semibold text-[#1C3F5E]">ACLEDA Bank</h3>
+          <p class="text-gray-600 text-sm mt-1 mb-4">
+            Reliable bank with mobile app. Accepts foreign passport accounts.
+          </p>
+          <a
+            href="https://play.google.com/store/search?q=acleda+ទាន់ចិត្ត&c=apps"
+            class="text-[#be924b] text-sm font-medium hover:underline"
+            >Download →</a
+          >
+        </div>
 
-              <!-- dont 2 -->
-              <div class="flex flex-col items-center text-center">
-                <i
-                  class="fa-solid fa-shoe-prints text-5xl text-red-600 rotate-180"
-                ></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t point feet at people
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Feet are seen as unclean — avoid pointing or touching.
-                </p>
-              </div>
-
-              <!-- dont 3 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-hand text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch monks (especially women)
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Physical contact with monks is inappropriate.
-                </p>
-              </div>
-
-              <!-- dont 4 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-trash text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t litter in public
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Keep the city clean and dispose trash properly.
-                </p>
-              </div>
-
-              <!-- dont 5 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-volume-high text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t raise your voice
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Loud or aggressive tone is considered rude.
-                </p>
-              </div>
-
-              <!-- dont 6 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-shoe-prints text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t enter temples with shoes
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always remove shoes at temples and sacred places.
-                </p>
-              </div>
-
-              <!-- dont 7 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-heart text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t show excessive PDA
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Public affection is not culturally accepted.
-                </p>
-              </div>
-
-              <!-- dont 8 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-gopuram text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t touch sacred objects
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Always ask before touching religious items.
-                </p>
-              </div>
-
-              <!-- dont 9 -->
-              <div class="flex flex-col items-center text-center">
-                <i class="fa-solid fa-angry text-5xl text-red-600"></i>
-                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
-                  Don’t show anger in public
-                </h3>
-                <p class="text-gray-600 text-sm leading-tight">
-                  Staying calm is a sign of respect in Khmer culture.
-                </p>
-              </div>
-            </div>
-          </div>
+        <!-- Pi Pay -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-6 hover:shadow-lg transition"
+        >
+          <img
+            src="/public/assets/services/apps/pi-pay.png"
+            class="w-14 h-14 rounded-lg mb-4"
+            alt="Pi Pay"
+          />
+          <h3 class="text-lg font-semibold text-[#1C3F5E]">Pi Pay</h3>
+          <p class="text-gray-600 text-sm mt-1 mb-4">
+            Cashless payments and QR services for everyday use.
+          </p>
+          <a
+            href="https://play.google.com/store/search?q=pi%20pay&c=apps"
+            class="text-[#be924b] text-sm font-medium hover:underline"
+            >Download →</a
+          >
         </div>
       </div>
     </main>

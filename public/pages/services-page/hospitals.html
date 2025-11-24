@@ -151,7 +151,7 @@
 
             <!-- services's dropdown -->
             <div
-              class="absolute left-0 top-full mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+              class="absolute left-0 top-full w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
             >
               <a
                 href="/public/pages/services-page/emergency.html"
@@ -232,16 +232,27 @@
         <div
           class="flex gap-8 text-gray-600 text-sm font-medium justify-center md:justify-start"
         >
-          <button class="text-[#1C3F5E] font-semibold">All</button>
-          <button class="hover:text-[#1C3F5E]">Open now</button>
-          <button class="hover:text-[#1C3F5E]">Open 24h</button>
-          <button class="hover:text-[#1C3F5F]">Near me</button>
+          <button class="text-[#d4a14d] font-semibold">
+            <a href="hospitals.html">All</a>
+          </button>
+          <button class="hover:text-[#1C3F5E]">
+            <a
+              href="/public/pages/services-page/hospital-fuctional/open-now.html"
+              >Open now</a
+            >
+          </button>
+          <button class="hover:text-[#1C3F5E]">
+            <a
+              href="/public/pages/services-page/hospital-fuctional/open-24h.html"
+              >Open 24h</a
+            >
+          </button>
         </div>
       </div>
 
       <!-- Hospital's card -->
       <div class="space-y-10">
-        <!-- Royal hospital -->
+        <!-- Royal Phnom Penh Hospital (24/7, rating unknown → default 4.1) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -250,7 +261,6 @@
             class="w-full md:w-64 h-40 object-cover rounded-lg"
             alt="Hospital"
           />
-
           <div class="flex-1">
             <span
               class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
@@ -260,11 +270,10 @@
               Royal Phnom Penh Hospital
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -273,32 +282,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 991 000 /
               +855 12 991 000
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 888, Russian Federation Blvd (St 110), Sangkat Toeuk Thla,
-              Khan Sen Sok, Phnom Penh
+              No. 888, Russian Federation Blvd, Sen Sok, Phnom Penh
             </p>
           </div>
-
-          <!-- buttons -->
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523991000"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
             <a
               href="https://www.google.com/maps?q=Royal+Phnom+Penh+Hospital+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Intercare hospital -->
+        <!-- Intercare Hospital (24/7, rating 4.7 real) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -306,7 +309,6 @@
             src="/public/assets/services/hospitals/intercare-hospital.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
               class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
@@ -316,45 +318,38 @@
               Intercare Hospital
             </h2>
 
+            <!-- Rating: 4.7 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <span class="text-gray-600 ml-2">4.1</span>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="text-gray-600 ml-2">4.7</span>
             </div>
 
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 996 900 /
               +855 69 822 889
             </p>
-
             <p class="text-gray-600 text-sm">
-              Olympia Medical Hub Building, Street 161, Veal Vong, Khan 7
-              Makara, Phnom Penh
+              Olympia Medical Hub, Street 161, 7 Makara, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523996900"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://maps.app.goo.gl/sSGTYNhA3NLS8Wg39"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Central Hospital -->
+        <!-- Central Hospital (24/7, rating 3.4 real) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -362,7 +357,6 @@
             src="/public/assets/services/hospitals/central-hospital.png"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
               class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
@@ -372,45 +366,38 @@
               Central Hospital (Phnom Penh)
             </h2>
 
+            <!-- Rating: 3.4 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
               <i class="fa-regular fa-star"></i>
-              <span class="text-gray-600 ml-2">4.1</span>
+              <span class="text-gray-600 ml-2">3.4</span>
             </div>
 
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 214 955 /
               +855 23 214 966
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 82A, Street 154, Sangkat Phsar Thmey 3, Khan Doun Penh, Phnom
-              Penh
+              No. 82A, Street 154, Phsar Thmey 3, Doun Penh, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523214955"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Central+Hospital+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Raffles Medical Phnom Penh -->
+        <!-- Raffles Medical (24/7 emergency, keep 24/7 badge) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -418,7 +405,6 @@
             src="/public/assets/services/hospitals/raffles-medical.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
               class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
@@ -428,11 +414,10 @@
               Raffles Medical Phnom Penh
             </h2>
 
+            <!-- Default rating 4.1 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -440,31 +425,26 @@
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 216 911
             </p>
-
             <p class="text-gray-600 text-sm">
-              #161, Street 51 (Pasteur), Sangkat Boeung Raing, Khan Doun Penh,
-              Phnom Penh
+              #161, Street 51 (Pasteur), Boeung Raing, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523216911"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Raffles+Medical+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
-        <!-- Sunrise Japan Hospital Phnom Penh -->
+
+        <!-- Sunrise Japan Hospital (NOT 24/7 → Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -472,21 +452,19 @@
             src="/public/assets/services/hospitals/sunrise-japan.jpeg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
-              Sunrise Japan Hospital Phnom Penh
+              Sunrise Japan Hospital
             </h2>
 
+            <!-- Default rating 4.1 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -495,31 +473,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 260 152 /
               +855 78 260 152
             </p>
-
             <p class="text-gray-600 text-sm">
-              #177E, Kola Loum Street (Bay Road), Group 2, Phum 2, Sangkat Chroy
-              Changvar, Phnom Penh
+              #177E, Kola Loum Street, Chroy Changvar, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523260152"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Sunrise+Japan+Hospital+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
-        <!-- Advance European Medicare Center -->
+
+        <!-- Advance European Medicare Center (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -527,21 +500,19 @@
             src="/public/assets/services/hospitals/advance-europe-medical.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Advance European Medicare Center
             </h2>
 
+            <!-- Default rating 4.1 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -550,31 +521,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 12 634 115 /
               +855 11 811 175
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 3, Street 240, Sangkat Chaktomuk, Khan Doun Penh, Phnom Penh
+              No. 3, Street 240, Chaktomuk, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85512634115"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Advance+European+Medicare+Center+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Princess Clinic -->
+        <!-- Princess Clinic (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -582,21 +548,19 @@
             src="/public/assets/services/hospitals/princess-clinic.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Princess Clinic
             </h2>
 
+            <!-- Default rating 4.1 -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -604,32 +568,26 @@
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 99 911 567
             </p>
-
             <p class="text-gray-600 text-sm">
-              # 132, St. 122, Sangkat Tek Laak I, Khan Toul Kok, 119 St 122,
-              Phnom Penh
+              #132, Street 122, Toul Kork, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85599911567"
-              class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              class="bg[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://maps.app.goo.gl/eSgFnk4LXJLYmCkDA"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Roomchang Dental & Aesthetic Hospital -->
+        <!-- Roomchang Dental – 8AM–8PM -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -637,21 +595,19 @@
             src="/public/assets/services/hospitals/roomchange-dental.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-blue-200 text-blue-700 text-xs px-3 py-1 rounded-full mb-2"
+              >8AM–8PM</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Roomchang Dental & Aesthetic Hospital
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -660,32 +616,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 211 338 /
               +855 69 811 338
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 4, Street 184, Sangkat Phsar Thmey 3, Khan Doun Penh, Phnom
-              Penh
+              No. 4, Street 184, Doun Penh, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523211338"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Roomchang+Dental+Hospital+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Domrey Mother & Child Clinic -->
+        <!-- Domrey Mother & Child Clinic (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -693,21 +643,19 @@
             src="/public/assets/services/hospitals/domrey-mother-child-clinic.jpeg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Domrey Mother & Child Clinic
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -716,32 +664,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 902 279 /
               +855 92 377 000
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 19C, St. 1986, Sangkat Phnom Penh Thmey, Khan Sen Sok, Phnom
-              Penh
+              No. 19C, St. 1986, Phnom Penh Thmey, Sen Sok
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85523902279"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Domrey+Mother+and+Child+Clinic+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Khema Hospital -->
+        <!-- Khema Hospital (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -749,55 +691,47 @@
             src="/public/assets/services/hospitals/khema-hospital.png"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Khema Hospital
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
 
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 92 616 113 /
-              +855 99 667 066 (emergency)
+              +855 99 667 066
             </p>
-
             <p class="text-gray-600 text-sm">
-              #18, Street 528 Toul Kork, Phnom Penh (also branch #28 Street 294,
-              BKK)
+              #18, Street 528, Toul Kork (Branch at Street 294, BKK)
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85592616113"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Khema+Hospital+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Chbar Ampov Polyclinic-->
+        <!-- Chbar Ampov Polyclinic (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -805,21 +739,19 @@
             src="/public/assets/services/hospitals/chbarampov-polyclinic.jpeg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Chbar Ampov Polyclinic
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -828,31 +760,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 23 65 66 777
               / +855 77 50 50 30
             </p>
-
             <p class="text-gray-600 text-sm">
-              No. 40 A-B-C, National Road 1, Chbar Ampov 1, Meanchey, Phnom Penh
+              No. 40A-B-C, National Road 1, Chbar Ampov, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+855236566777"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Chbar+Ampov+Polyclinic+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Clinic Lim Taing (Neurology/Orthopedics) -->
+        <!-- Clinic Lim Taing (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -860,21 +787,19 @@
             src="/public/assets/services/hospitals/limtang-clinic.jpeg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Clinic Lim Taing (Neurology/Orthopedics)
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -883,31 +808,26 @@
               <i class="fa-solid fa-phone text-green-600"></i> +855 17 92 92 16
               / +855 11 83 63 36
             </p>
-
             <p class="text-gray-600 text-sm">
-              #SHR1#16-18, St Nakry, Sangkat Teuk Thla, Khan Sen Sok, Phnom Penh
+              St. Nakry, Teuk Thla, Sen Sok, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85517929216"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Clinic+Lim+Taing+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
 
-        <!-- Clinic Orange Cancer -->
+        <!-- Orange Cancer Clinic (Open Hours Vary) -->
         <div
           class="bg-white border border-gray-200 shadow-sm rounded-xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
         >
@@ -915,21 +835,19 @@
             src="/public/assets/services/hospitals/orange-cancer.jpg"
             class="w-full md:w-64 h-40 object-cover rounded-lg"
           />
-
           <div class="flex-1">
             <span
-              class="inline-block bg-green-200 text-green-700 text-xs px-3 py-1 rounded-full mb-2"
-              >24/7</span
+              class="inline-block bg-yellow-200 text-yellow-700 text-xs px-3 py-1 rounded-full mb-2"
+              >Open Hours Vary</span
             >
             <h2 class="text-xl font-semibold text-[#1C3F5E] mb-1">
               Clinic Orange Cancer
             </h2>
 
+            <!-- Default rating -->
             <div class="flex items-center gap-1 text-[#be924b] mb-2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-regular fa-star"></i>
               <span class="text-gray-600 ml-2">4.1</span>
             </div>
@@ -937,28 +855,22 @@
             <p class="text-gray-700 flex items-center gap-2 mb-1">
               <i class="fa-solid fa-phone text-green-600"></i> +855 12 46 27 79
             </p>
-
             <p class="text-gray-600 text-sm">
-              St 6A, Prekleap Village, Prekleap District, Khan Chroy Changvar,
-              Phnom Penh
+              St. 6A, Prek Leap, Chroy Changvar, Phnom Penh
             </p>
           </div>
-
           <div class="flex flex-col gap-3 w-full md:w-auto text-center">
             <a
               href="tel:+85512462779"
               class="bg-[#1C3F5E] text-white px-6 py-2 rounded-full hover:bg-[#162f45]"
+              >Call Now</a
             >
-              Call Now
-            </a>
-
             <a
               href="https://www.google.com/maps?q=Orange+Cancer+Clinic+Phnom+Penh"
               target="_blank"
               class="bg-[#DFB777] text-[#1C3F5E] px-6 py-2 rounded-full hover:bg-[#be924b]"
+              >Get Direction</a
             >
-              Get Direction
-            </a>
           </div>
         </div>
       </div>
