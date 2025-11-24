@@ -1,303 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sightseeing Vibe - Historical Phnom Penh</title>
+    <title>Phnom Penh Compass</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../src/styles.css" />
-</head>
-<body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
 
-    <header>
-        <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
-            <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-10">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex items-center gap-3">
-                        <img
-                            src="../../assets/phnompenh-compass-logo.svg" 
-                            alt="Phnom Penh Compass Logo"
-                            class="h-auto w-auto"
-                        />
-                    </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="#" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Explore</a>
-                        <a href="choose-your-vibe.html" class="text-yellow-600 font-semibold">Choose Your Vibe</a>
-                        <a href="#" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Services</a>
-                        <a href="#" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Do's & Don'ts</a>
-                    </div>
-                    <div class="flex items-center">
-                        <a href="#" class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+  <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
+    <!-- mobile menu toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+
+    <!-- dark overlay -->
+    <label
+      for="menu-toggle"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden peer-checked:block"
+    >
+    </label>
+
+    <!-- mobile menu penel -->
+    <div
+      class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 translate-x-full peer-checked:translate-x-0 transition-all duration-300 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center p-6 border-b border-gray-200"
+      >
+        <h2 class="text-xl font-bold">Menu</h2>
+        <label for="menu-toggle" class="cursor-pointer">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </label>
+      </div>
+
+      <div class="space-y-1">
+        <a
+          href="/public/pages/index.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Home</a
+        >
+        <a
+          href="/public/pages/explore-page/explore.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Explore</a
+        >
+
+        <a
+          href="/public/pages/choose-your-vibe-page/your-vibe.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Choose Your Vibe</a
+        >
+
+        <input type="checkbox" id="mobile-services" class="hidden peer/m" />
+        <label
+          for="mobile-services"
+          class="flex justify-between items-center px-6 py-4 border-b cursor-pointer hover:bg-gray-100"
+        >
+          Services
+          <i
+            class="fa-solid fa-chevron-down text-sm peer-checked/m:rotate-180 transition"
+          ></i>
+        </label>
+        <!-- services' dropdwon -->
+        <div
+          class="max-h-0 overflow-hidden peer-checked/m:max-h-96 transition-all"
+        >
+          <a
+            href="/public/pages/services-page/emergency.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Emergency</a
+          >
+          <a
+            href="/public/pages/services-page/hospitals.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Hospitals</a
+          >
+          <a
+            href="/public/pages/services-page/embassies.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Embassies</a
+          >
+          <a
+            href="/public/pages/services-page/useful-app.html"
+            class="block px-10 py-3 hover:bg-gray-100"
+            >Useful Apps</a
+          >
+        </div>
+
+        <a
+          href="/public/pages/dos-donts-page/dos-donts.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a href="#" class="flex items-center px-6 py-4 hover:bg-gray-100">
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white mr-3"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+          Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Desktop Navbar -->
+    <header class="fixed top-0 left-0 w-full z-30 bg-[#FBFCF6] shadow-sm">
+      <nav
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- logo -->
+        <a href="/public/pages/index.html">
+          <img
+            src="/public/assets/phnompenh-compass-logo.svg"
+            alt="PP Compass Logo"
+          />
+        </a>
+
+        <!-- menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a
+            href="/public/pages/explore-page/explore.html"
+            class="hover:text-yellow-600"
+            >Explore</a
+          >
+          <a
+            href="/public/pages/choose-your-vibe-page/your-vibe.html"
+            class="hover:text-yellow-600"
+            >Choose Your Vibe</a
+          >
+
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-yellow-600">
+              Services
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </button>
+
+            <!-- services's dropdown -->
+            <div
+              class="absolute left-0 top-full mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+            >
+              <a
+                href="/public/pages/services-page/emergency.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Emergency</a
+              >
+              <a
+                href="/public/pages/services-page/hospitals.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Hospitals</a
+              >
+              <a
+                href="/public/pages/services-page/embassies.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Embassies</a
+              >
+              <a
+                href="/public/pages/services-page/useful-app.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Useful Apps</a
+              >
             </div>
-        </nav>
+          </div>
+
+          <a
+            href="/public/pages/dos-donts-page/dos-donts.html"
+            class="hover:text-yellow-600"
+            >Do's & Don'ts</a
+          >
+        </div>
+
+        <!-- user's profile -->
+        <div class="hidden md:flex items-center">
+          <div
+            class="w-8 h-8 bg-gray-700 rounded-full flex justify-center items-center text-white"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- mobile toggle button -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </label>
+      </nav>
     </header>
-    <hr/>
+    <!-- main content -->
+    <main class="pt-28 grow">
+      <section
+        class="max-w-6xl mx-auto text-center py-14 px-6 bg-gradient-to-b from-[#f6f6e8] to-white rounded-xl shadow-sm mb-10"
+      >
+        <a
+          href="/public/pages/index.html"
+          class="inline-flex items-center gap-2 text-gray-700 hover:text-[#1C3F5E] mb-5"
+        >
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
 
-    <main class="flex-grow">
-        <section class="max-w-6xl mx-auto text-center py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white shadow-sm mb-8">
-            <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">📸 Sightseeing Vibe: History & Culture</h1>
-            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
-                Explore Phnom Penh's rich history and architectural heritage with visits to essential landmarks and monuments.
-            </p>
-        </section>
+        <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">
+          📸 Sightseeing Vibe: History & Culture
+        </h1>
 
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-            <h2 class="text-2xl font-bold text-[#1C3F5E] mb-6 text-center">Refine Your Vibe: Mood & Theme</h2>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                
-                <a href="relax-vibe.html" class="px-6 py-3 rounded-full font-semibold text-[#1C3F5E] bg-white border-2 border-gray-300 hover:border-[#DFB777] transition-all duration-200">
-                    <i class="fa-solid fa-leaf mr-2"></i> Relax
-                </a>
+        <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+          Explore Phnom Penh's rich history and architectural heritage with
+          visits to essential landmarks and monuments.
+        </p>
+      </section>
 
-                <a href="night-vibe.html" class="px-6 py-3 rounded-full font-semibold text-[#1C3F5E] bg-white border-2 border-gray-300 hover:border-[#DFB777] transition-all duration-200">
-                    <i class="fa-solid fa-moon mr-2"></i> Night
-                </a>
-                
-                <a href="sightseeing-vibe.html" class="px-6 py-3 rounded-full font-semibold text-white bg-[#1C3F5E] shadow-md transition-all duration-200">
-                    <i class="fa-solid fa-camera mr-2"></i> Sightseeing
-                </a>
+      <!-- vibe filters  -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <h2 class="text-2xl font-bold text-[#1C3F5E] text-center mb-6">
+          Refine Your Vibe: Mood & Theme
+        </h2>
 
-                <a href="nature-vibe.html" class="px-6 py-3 rounded-full font-semibold text-[#1C3F5E] bg-white border-2 border-gray-300 hover:border-[#DFB777] transition-all duration-200">
-                    <i class="fa-solid fa-tree mr-2"></i> Nature
-                </a>
-                
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="relax-vibe.html"
+            class="px-6 py-3 rounded-full font-semibold bg-white text-[#1C3F5E] border-2 border-gray-300 hover:border-[#DFB777] transition"
+          >
+            <i class="fa-solid fa-leaf mr-2"></i>Relax
+          </a>
+
+          <a
+            href="night-vibe.html"
+            class="px-6 py-3 rounded-full font-semibold bg-white text-[#1C3F5E] border-2 border-gray-300 hover:border-[#DFB777] transition"
+          >
+            <i class="fa-solid fa-moon mr-2"></i>Night
+          </a>
+
+          <a
+            href="sightseeing-vibe.html"
+            class="px-6 py-3 rounded-full font-semibold text-white bg-[#1C3F5E] shadow-md"
+          >
+            <i class="fa-solid fa-camera mr-2"></i>Sightseeing
+          </a>
+
+          <a
+            href="nature-vibe.html"
+            class="px-6 py-3 rounded-full font-semibold bg-white text-[#1C3F5E] border-2 border-gray-300 hover:border-[#DFB777] transition"
+          >
+            <i class="fa-solid fa-tree mr-2"></i>Nature
+          </a>
+        </div>
+      </section>
+
+      <!-- cards -->
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <h2 class="text-3xl font-bold text-[#1C3F5E] mb-8 border-b pb-2">
+          Recommended Sightseeing Spots
+        </h2>
+
+        <div class="grid grid-cols-1 gap-8">
+          <!-- card 1 -->
+          <div
+            class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
+          >
+            <div class="md:w-1/3 h-64 md:h-auto">
+              <img
+                src="/public/assets/choose-your-vibe/Royal Palace.jpg"
+                class="w-full h-full object-cover"
+              />
             </div>
-        </section>
 
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-            <h2 class="text-3xl font-bold text-[#1C3F5E] mb-8 border-b pb-2">Recommended Sightseeing Spots</h2>
-            
-            <div class="grid grid-cols-1 gap-8">
-                
-                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                    <div class="md:w-1/3 h-64 md:h-auto bg-gray-200 flex items-center justify-center">
-                        <img src="images/Royal Palace.jpg" alt="Royal Palace" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-2/3 p-6 sm:p-8">
-                        <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">The Royal Palace & Silver Pagoda 👑</h3>
-                        <p class="text-yellow-600 font-medium mb-3">#Landmark #Architecture #History</p>
-                        <p class="text-gray-700 mb-4">
-                            The official residence of the King of Cambodia. This complex features beautiful Khmer architecture, including the Silver Pagoda, known for its floor covered with over 5,000 silver tiles.
-                        </p>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-location-dot mr-1"></i> Sothearos Boulevard</span>
-                            <a href="#" class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition-colors">
-                                View Details <i class="fa-solid fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="md:w-2/3 p-6 sm:p-8">
+              <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">
+                The Royal Palace & Silver Pagoda 👑
+              </h3>
 
-                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                    <div class="md:w-1/3 h-64 md:h-auto bg-gray-200 flex items-center justify-center">
-                        <img src="images/National Museum.jpg" alt="National Museum of Cambodia" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-2/3 p-6 sm:p-8">
-                        <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">National Museum of Cambodia 🏺</h3>
-                        <p class="text-yellow-600 font-medium mb-3">#Culture #Art #Architecture</p>
-                        <p class="text-gray-700 mb-4">
-                            Home to one of the world's most important collections of Khmer sculpture and artifacts from the pre-Angkorian and Angkorian eras. The building itself is a masterpiece of traditional Khmer architecture.
-                        </p>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-location-dot mr-1"></i> Preah Ang Eng St. (Street 13)</span>
-                            <a href="#" class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition-colors">
-                                View Details <i class="fa-solid fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                    <div class="md:w-1/3 h-64 md:h-auto bg-gray-200 flex items-center justify-center">
-                        <img src="images/Wat Phnom.jpg" alt="Wat Phnom" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-2/3 p-6 sm:p-8">
-                        <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">Wat Phnom 🐘</h3>
-                        <p class="text-yellow-600 font-medium mb-3">#Temple #Culture #CityOrigin</p>
-                        <p class="text-gray-700 mb-4">
-                            The historical center of the city, sitting atop the only hill in Phnom Penh. This temple is believed to be the spot where the capital was founded and offers a cool, shaded escape.
-                        </p>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-location-dot mr-1"></i> Preah Norodom Blvd</span>
-                            <a href="#" class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition-colors">
-                                View Details <i class="fa-solid fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              <p class="text-yellow-600 font-medium mb-3">
+                #Landmark #Architecture #History
+              </p>
 
+              <p class="text-gray-700 mb-4">
+                The official residence of the King of Cambodia. This complex
+                features beautiful Khmer architecture, including the Silver
+                Pagoda with over 5,000 silver tiles.
+              </p>
+
+              <div class="flex flex-wrap gap-4 items-center">
+                <span class="text-sm text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-1"></i>Sothearos Blvd
+                </span>
+
+                <a
+                  href="#"
+                  class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition"
+                >
+                  View Details →
+                </a>
+              </div>
             </div>
-        </section>
+          </div>
 
+          <!-- card 2 -->
+          <div
+            class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
+          >
+            <div class="md:w-1/3 h-64 md:h-auto">
+              <img
+                src="/public/assets/choose-your-vibe/National Museum.jpg"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="md:w-2/3 p-6 sm:p-8">
+              <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">
+                National Museum of Cambodia 🏺
+              </h3>
+
+              <p class="text-yellow-600 font-medium mb-3">
+                #Culture #Art #Architecture
+              </p>
+
+              <p class="text-gray-700 mb-4">
+                One of the world's most important collections of Khmer art, with
+                sculptures and artifacts from the pre-Angkorian and Angkorian
+                eras.
+              </p>
+
+              <div class="flex flex-wrap gap-4 items-center">
+                <span class="text-sm text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-1"></i>Street 13
+                </span>
+
+                <a
+                  href="#"
+                  class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition"
+                >
+                  View Details →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- card 3 -->
+          <div
+            class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
+          >
+            <div class="md:w-1/3 h-64 md:h-auto">
+              <img
+                src="/public/assets/choose-your-vibe/Wat Phnom.jpg"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="md:w-2/3 p-6 sm:p-8">
+              <h3 class="text-2xl font-bold text-[#1C3F5E] mb-2">
+                Wat Phnom 🐘
+              </h3>
+
+              <p class="text-yellow-600 font-medium mb-3">
+                #Temple #CityOrigin #Culture
+              </p>
+
+              <p class="text-gray-700 mb-4">
+                The symbolic birthplace of Phnom Penh, located on the only hill
+                in the city — a peaceful and shaded cultural landmark.
+              </p>
+
+              <div class="flex flex-wrap gap-4 items-center">
+                <span class="text-sm text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-1"></i>Preah Norodom
+                  Blvd
+                </span>
+
+                <a
+                  href="#"
+                  class="text-yellow-600 hover:text-[#1C3F5E] font-semibold transition"
+                >
+                  View Details →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <hr/>
+    <!-- footer -->
     <footer
-        class="bg-[url('../public/assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
+      class="bg-[url('/public/assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
     >
-        <div class="bg-[#202D45]/60 text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 sm:px-6"
+      <div class="bg-[#202D45]/60 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 sm:px-6"
+          >
+            <div
+              class="flex flex-col items-center sm:items-start text-center sm:text-left"
+            >
+              <img
+                src="/public/assets/footer-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto mx-auto sm:mx-0"
+              />
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Explore Phnom Penh
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#cafes" class="hover:text-[#DFB777] transition"
+                    >Cafés & Restaurants</a
+                  >
+                </li>
+                <li>
+                  <a href="#museums" class="hover:text-[#DFB777] transition"
+                    >Museums & Tourist Sites</a
+                  >
+                </li>
+                <li>
+                  <a href="#vibe" class="hover:text-[#DFB777] transition"
+                    >Choose Your Vibe</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#DFB777] transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#dos-donts" class="hover:text-[#DFB777] transition"
+                    >Do's & Don'ts</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                About and Support
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#about" class="hover:text-[#DFB777] transition"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#DFB777] transition"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#faqs" class="hover:text-[#DFB777] transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#partnerships"
+                    class="hover:text-[#DFB777] transition"
+                    >Partnerships & Collaborations</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Stay Connected
+              </h4>
+
+              <div class="flex justify-center sm:justify-start gap-3 mb-6">
+                <a
+                  href="#facebook"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
                 >
-                    <div
-                        class="flex flex-col items-center sm:items-start text-center sm:text-left"
-                    >
-                        <img
-                            src="../public/assets/footer-logo.svg"
-                            alt="Phnom Penh Compass Logo"
-                            class="h-auto w-auto mx-auto sm:mx-0"
-                        />
-                    </div>
-                    <div>
-                        <h4
-                            class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
-                        >
-                            Explore Phnom Penh
-                        </h4>
-                        <ul class="space-y-2 text-white text-center sm:text-left">
-                            <li>
-                                <a href="#cafes" class="hover:text-[#DFB777] transition"
-                                    >Cafés & Restaurants</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#museums" class="hover:text-[#DFB777] transition"
-                                    >Museums & Tourist Sites</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#vibe" class="hover:text-[#DFB777] transition"
-                                    >Choose Your Vibe</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#services" class="hover:text-[#DFB777] transition"
-                                    >Services</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#dos-donts" class="hover:text-[#DFB777] transition"
-                                    >Do's & Don'ts</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4
-                            class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
-                        >
-                            About and Support
-                        </h4>
-                        <ul class="space-y-2 text-white text-center sm:text-left">
-                            <li>
-                                <a href="#about" class="hover:text-[#DFB777] transition"
-                                    >About Us</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#contact" class="hover:text-[#DFB777] transition"
-                                    >Contact Us</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#faqs" class="hover:text-[#DFB777] transition"
-                                    >FAQs</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="#partnerships"
-                                    class="hover:text-[#DFB777] transition"
-                                    >Partnerships & Collaborations</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4
-                            class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
-                        >
-                            Stay Connected
-                        </h4>
-                        <div class="flex justify-center sm:justify-start gap-3 mb-6">
-                            <a
-                                href="#facebook"
-                                class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
-                            >
-                                <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
-                            </a>
-                            <a
-                                href="#instagram"
-                                class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
-                            >
-                                <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
-                            </a>
-                            <a
-                                href="#email"
-                                class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
-                            >
-                                <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
-                            </a>
-                        </div>
-                        <form
-                            class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
-                        >
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
-                            />
-                            <button
-                                type="submit"
-                                class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
+                  <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#instagram"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#email"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
+                </a>
+              </div>
+
+              <form
+                class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
+                />
+                <button
+                  type="submit"
+                  class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
-            <div class="border-t border-[#DFB777]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
-                    >
-                        <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
-                        <div
-                            class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
-                        >
-                            <a href="#terms" class="hover:text-[#DFB777] transition"
-                                >Term of Service</a
-                            >
-                            <a href="#privacy" class="hover:text-[#DFB777] transition"
-                                >Privacy Policy</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="border-t border-[#DFB777]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
+            >
+              <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
+              <div
+                class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
+              >
+                <a href="#terms" class="hover:text-[#DFB777] transition"
+                  >Term of Service</a
+                >
+                <a href="#privacy" class="hover:text-[#DFB777] transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore - Phnom Penh Compass</title>
+    <title>Phnom Penh Compass</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,279 +19,396 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      * {
-        font-family: 'Raleway', sans-serif;
-      }
-      
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      /* Mobile menu styles */
-      .menu-overlay {
-        display: none;
-      }
-
-      #menu-toggle:checked ~ .menu-overlay {
-        display: block;
-      }
-
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      #menu-toggle:checked ~ .mobile-menu {
-        transform: translateX(0);
-      }
-    </style>
+    <link rel="stylesheet" href="/src/styles.css" />
   </head>
 
   <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
-    <!-- navbar -->
-    <!-- for mobile responsive navbar -->
-    <input type="checkbox" id="menu-toggle" class="hidden" />
+    <!-- mobile menu toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
+    <!-- dark overlay -->
     <label
       for="menu-toggle"
-      class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
-    ></label>
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden peer-checked:block"
+    >
+    </label>
 
+    <!-- mobile menu penel -->
     <div
-      class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
+      class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 translate-x-full peer-checked:translate-x-0 transition-all duration-300 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center p-6 border-b border-gray-200"
       >
-        <h2 class="text-xl font-bold text-gray-900">Menu</h2>
-        <label
-          for="menu-toggle"
-          class="cursor-pointer text-gray-700 hover:text-gray-900"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+        <h2 class="text-xl font-bold">Menu</h2>
+        <label for="menu-toggle" class="cursor-pointer">
+          <i class="fa-solid fa-xmark text-xl"></i>
         </label>
       </div>
 
-      <div>
+      <div class="space-y-1">
         <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          href="/public/pages/index.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Home</a
+        >
+        <a
+          href="/public/pages/explore-page/explore.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
           >Explore</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Choose Your Vibe</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Services</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Do's & Don'ts</a
         >
 
         <a
-          href="#"
-          class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium"
+          href="/public/pages/choose-your-vibe-page/your-vibe.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Choose Your Vibe</a
         >
-          <div
-            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3"
+
+        <input type="checkbox" id="mobile-services" class="hidden peer/m" />
+        <label
+          for="mobile-services"
+          class="flex justify-between items-center px-6 py-4 border-b cursor-pointer hover:bg-gray-100"
+        >
+          Services
+          <i
+            class="fa-solid fa-chevron-down text-sm peer-checked/m:rotate-180 transition"
+          ></i>
+        </label>
+        <!-- services' dropdwon -->
+        <div
+          class="max-h-0 overflow-hidden peer-checked/m:max-h-96 transition-all"
+        >
+          <a
+            href="/public/pages/services-page/emergency.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Emergency</a
           >
-            <svg
-              class="w-5 h-5 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
+          <a
+            href="/public/pages/services-page/hospitals.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Hospitals</a
+          >
+          <a
+            href="/public/pages/services-page/embassies.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Embassies</a
+          >
+          <a
+            href="/public/pages/services-page/useful-app.html"
+            class="block px-10 py-3 hover:bg-gray-100"
+            >Useful Apps</a
+          >
+        </div>
+
+        <a
+          href="/public/pages/dos-donts-page/dos-donts.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a href="#" class="flex items-center px-6 py-4 hover:bg-gray-100">
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white mr-3"
+          >
+            <i class="fa-solid fa-user"></i>
           </div>
           Profile
         </a>
       </div>
     </div>
 
-    <!-- Navbar for large screen -->
-    <header>
-      <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
-        <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-10">
-          <div class="flex items-center justify-between h-20">
-            <div class="flex items-center gap-3">
-              <img
-                src="../../assets/phnompenh-compass-logo.svg"
-                alt="Phnom Penh Compass Logo"
-                class="h-auto w-auto"
-              />
-            </div>
+    <!-- Desktop Navbar -->
+    <header class="fixed top-0 left-0 w-full z-30 bg-[#FBFCF6] shadow-sm">
+      <nav
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- logo -->
+        <a href="/public/pages/index.html">
+          <img
+            src="/public/assets/phnompenh-compass-logo.svg"
+            alt="PP Compass Logo"
+          />
+        </a>
 
-            <div class="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Explore</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Choose Your Vibe</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Services</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Do's & Don'ts</a
-              >
-            </div>
+        <!-- menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a
+            href="/public/pages/explore-page/explore.html"
+            class="hover:text-yellow-600"
+            >Explore</a
+          >
+          <a
+            href="/public/pages/choose-your-vibe-page/your-vibe.html"
+            class="hover:text-yellow-600"
+            >Choose Your Vibe</a
+          >
 
-            <div class="hidden md:flex items-center">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <svg
-                  class="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
-              </a>
-            </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-yellow-600">
+              Services
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </button>
 
-            <div class="md:hidden">
-              <label
-                for="menu-toggle"
-                class="cursor-pointer text-gray-700 hover:text-gray-900"
+            <!-- services's dropdown -->
+            <div
+              class="absolute left-0 top-full mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+            >
+              <a
+                href="/public/pages/services-page/emergency.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Emergency</a
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </label>
+              <a
+                href="/public/pages/services-page/hospitals.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Hospitals</a
+              >
+              <a
+                href="/public/pages/services-page/embassies.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Embassies</a
+              >
+              <a
+                href="/public/pages/services-page/useful-app.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Useful Apps</a
+              >
             </div>
           </div>
+
+          <a
+            href="/public/pages/dos-donts-page/dos-donts.html"
+            class="hover:text-yellow-600"
+            >Do's & Don'ts</a
+          >
         </div>
+
+        <!-- user's profile -->
+        <div class="hidden md:flex items-center">
+          <div
+            class="w-8 h-8 bg-gray-700 rounded-full flex justify-center items-center text-white"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- mobile toggle button -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </label>
       </nav>
     </header>
-
+    ]
     <!-- content body  -->
-    <main class="flex-grow">
+    <main class="grow pt-20">
       <!-- Hero Section -->
       <section class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">Explore Phnom Penh</h1>
+        <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">
+          Explore Phnom Penh
+        </h1>
         <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Cambodia's lively capital where history and modern life meet. Explore golden temples, riverside cafés, bustling markets, and vibrant nightlife — all wrapped in the warmth of Khmer hospitality.
+          Cambodia's lively capital where history and modern life meet. Explore
+          golden temples, riverside cafés, bustling markets, and vibrant
+          nightlife — all wrapped in the warmth of Khmer hospitality.
         </p>
       </section>
 
       <!-- Cafes Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6"><a href="cafes.html">Cafes</a></h2>
+      <section id="cafes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-[#1C3F5E]">Cafés</h2>
+          <a
+            href="cafes.html"
+            class="text-sm font-semibold text-[#DFB777] hover:underline flex items-center gap-1"
+          >
+            See more
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4">
             <!-- Cafe Card 1 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Mongkol Borei</span>
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/cafes/brown.jpeg"
+                alt="Cafe in Phnom Penh"
+                class="w-full h-52 object-cover"
+              />
+              <div class="p-6 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
+                  <span>Street 51, Boeng Keng Kang 1</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">The Coffee House</h3>
-                <p class="text-sm text-gray-600 mb-2">Cozy atmosphere</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Open Daily</span>
-                  <span class="text-sm text-gray-500">7AM - 9PM</span>
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Brown Coffee &amp; Bakery (BKK1)
+                </h3>
+                <p class="text-sm text-gray-600 mb-4 flex-1">
+                  Popular local coffee chain with stylish interiors, strong
+                  Wi-Fi, and a wide range of espresso drinks and pastries.
+                </p>
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="font-semibold text-[#DFB777]">$$ • Wi-Fi</span>
+                  <span class="font-medium text-[#1C3F5E]">7AM – 9PM</span>
                 </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex text-[#DFB777]">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="ml-2 text-sm text-gray-600">(4.5)</span>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Brown+Coffee+Boeng+Keng+Kang+Phnom+Penh"
+                  target="_blank"
+                  class="block mt-auto bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                </a>
               </div>
             </div>
 
-            <!-- Cafe Card 2 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Riverside</span>
+            <!-- Cafe Card 2 - Feel Good Cafe -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/cafes/feel-good-coffee.jpg"
+                alt="Cafe in Phnom Penh"
+                class="w-full h-52 object-cover"
+              />
+              <div class="p-6 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
+                  <span>Street 136, Riverside (Daun Penh)</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Brew & Bites</h3>
-                <p class="text-sm text-gray-600 mb-2">Specialty coffee</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Open Daily</span>
-                  <span class="text-sm text-gray-500">6AM - 10PM</span>
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Feel Good Cafe
+                </h3>
+                <p class="text-sm text-gray-600 mb-4 flex-1">
+                  Fair-trade coffee roasted in-house, friendly staff, and a calm
+                  atmosphere just a short walk from the riverside.
+                </p>
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="font-semibold text-[#DFB777]">$ • Brunch</span>
+                  <span class="font-medium text-[#1C3F5E]">7AM – 5PM</span>
                 </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex text-[#DFB777]">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="ml-2 text-sm text-gray-600">(4.6)</span>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Feel+Good+Cafe+Phnom+Penh"
+                  target="_blank"
+                  class="block mt-auto bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                  <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Cafe Card 3 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>BKK1</span>
+            <!-- Cafe Card 3 - Java Creative Cafe -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/cafes/java-creative-cafe.jpg"
+                alt="Cafe in Phnom Penh"
+                class="w-full h-52 object-cover"
+              />
+              <div class="p-6 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
+                  <span>Near Independence Monument, Norodom Blvd</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Urban Bean</h3>
-                <p class="text-sm text-gray-600 mb-2">Modern workspace</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Open Daily</span>
-                  <span class="text-sm text-gray-500">8AM - 8PM</span>
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Java Creative Cafe
+                </h3>
+                <p class="text-sm text-gray-600 mb-4 flex-1">
+                  Café and creative space with rotating art exhibitions, quiet
+                  corners, and a full food and drink menu.
+                </p>
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="font-semibold text-[#DFB777]"
+                    >$$ • Art space</span
+                  >
+                  <span class="font-medium text-[#1C3F5E]">7AM – 9PM</span>
                 </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex text-[#DFB777]">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="ml-2 text-sm text-gray-600">(4.5)</span>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Java+Creative+Cafe+Phnom+Penh"
+                  target="_blank"
+                  class="block mt-auto bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                  <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Cafe Card 4 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&h=250&fit=crop" alt="Cafe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Russian Market</span>
+            <!-- Cafe Card 4 - Farm to Table -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/cafes/farm-to-table.jpg"
+                alt="Cafe in Phnom Penh"
+                class="w-full h-52 object-cover"
+              />
+              <div class="p-6 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
+                  <span>Street 360, Boeng Keng Kang 1</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Garden Café</h3>
-                <p class="text-sm text-gray-600 mb-2">Outdoor seating</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Open Daily</span>
-                  <span class="text-sm text-gray-500">7AM - 7PM</span>
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Farm to Table
+                </h3>
+                <p class="text-sm text-gray-600 mb-4 flex-1">
+                  Green garden setting with organic dishes, smoothies, and
+                  plenty of outdoor seating for a relaxed work session.
+                </p>
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="font-semibold text-[#DFB777]">$$ • Organic</span>
+                  <span class="font-medium text-[#1C3F5E]">7:30AM – 9PM</span>
                 </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex text-[#DFB777]">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="ml-2 text-sm text-gray-600">(4.5)</span>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Farm+to+Table+Phnom+Penh"
+                  target="_blank"
+                  class="block mt-auto bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                  <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -299,75 +416,204 @@
       </section>
 
       <!-- Restaurants Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6"><a href="restaurants.html">Restaurants</a></h2>
+      <section
+        id="restaurants"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+      >
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-[#1C3F5E]">Restaurants</h2>
+          <a
+            href="restaurants.html"
+            class="text-sm font-semibold text-[#DFB777] hover:underline flex items-center gap-1"
+          >
+            See more
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4">
-            <!-- Restaurant Card 1 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop" alt="Restaurant" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Toul Tom Poung</span>
+            <!-- Restaurant 1: Romdeng -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/restaurants/romdeng.avif"
+                class="w-full h-52 object-cover"
+                alt="Romdeng Restaurant"
+              />
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>
+                  <span>Street 174, Daun Penh</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Khmer Delight</h3>
-                <p class="text-sm text-gray-600 mb-2">Traditional Cambodian</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$$</span>
-                  <span class="text-sm text-gray-500">11AM - 10PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Romdeng Restaurant
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  Famous Cambodian restaurant offering traditional dishes in a
+                  heritage-style house.
+                </p>
+
+                <div class="flex items-center justify-between text-sm mb-3">
+                  <span class="text-[#DFB777] font-semibold">$$</span>
+                  <span class="text-gray-700">11AM – 10PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <span class="ml-2 text-gray-700 text-sm">(4.4)</span>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/XctG5ndeMLmWwoMGA"
+                  target="_blank"
+                  class="mt-auto block bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                </a>
               </div>
             </div>
 
-            <!-- Restaurant Card 2 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop" alt="Restaurant" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Central Market</span>
+            <!-- Restaurant 2: Phsar Chas Street Food -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/restaurants/phsar-chas.jpg"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-5">
+                <div class="flex items-center text-sm mb-2">
+                  <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>
+                  <span class="text-gray-800">Old Market, Daun Penh</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Street Food Hub</h3>
-                <p class="text-sm text-gray-600 mb-2">Local street food</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$</span>
-                  <span class="text-sm text-gray-500">9AM - 11PM</span>
+
+                <h3 class="text-xl font-semibold text-[#1C3F5E]">
+                  Central Market
+                </h3>
+
+                <p class="text-gray-600 text-sm mb-4">
+                  Iconic Art Deco market offering jewelry, souvenirs, and local
+                  goods.
+                </p>
+
+                <div class="flex justify-between mb-4">
+                  <span class="text-[#be924b] font-semibold">Free</span>
+                  <span class="text-gray-600 text-sm">7AM - 5PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <span class="ml-2 text-gray-600 text-sm">(4.5)</span>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/XctG5ndeMLmWwoMGA"
+                  target="_blank"
+                  class="mt-auto block bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                </a>
               </div>
             </div>
 
-            <!-- Restaurant Card 3 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=250&fit=crop" alt="Restaurant" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Riverside</span>
+            <!-- Restaurant 3: Malis -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/restaurants/malis.jpg"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>
+                  <span>BKK1, Phnom Penh</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Riverside Bistro</h3>
-                <p class="text-sm text-gray-600 mb-2">International cuisine</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$$$</span>
-                  <span class="text-sm text-gray-500">12PM - 11PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Malis Restaurant
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">
+                  Fine-dining Khmer cuisine by Master Chef Luu Meng.
+                </p>
+
+                <div class="flex items-center justify-between text-sm mb-3">
+                  <span class="text-[#DFB777] font-semibold">$$$</span>
+                  <span class="text-gray-700">11AM – 10PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777]">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <span class="ml-2 text-gray-700">(4.5)</span>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/LbLw3AUiMBvX9N7K6"
+                  target="_blank"
+                  class="mt-auto block bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                </a>
               </div>
             </div>
 
-            <!-- Restaurant Card 4 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=250&fit=crop" alt="Restaurant" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>BKK3</span>
+            <!-- Restaurant 4: Eleven One Kitchen -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/restaurants/eleven-one-kitchen.webp"
+                class="w-full h-52 object-cover"
+                alt="Eleven One Kitchen"
+              />
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm mb-2 text-gray-800">
+                  <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>
+                  <span>BKK1, Phnom Penh</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Fusion Kitchen</h3>
-                <p class="text-sm text-gray-600 mb-2">Asian fusion</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$$</span>
-                  <span class="text-sm text-gray-500">5PM - 12AM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Eleven One Kitchen
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  Healthy Khmer dishes served in a cozy garden-style restaurant.
+                </p>
+
+                <div class="flex items-center justify-between text-sm mb-3">
+                  <span class="text-[#DFB777] font-semibold">$$</span>
+                  <span class="text-gray-700">10AM – 10PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <span class="ml-2 text-gray-700 text-sm">(4.4)</span>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/Dbzs3dj2p8DKRYrw9"
+                  target="_blank"
+                  class="mt-auto block bg-[#1C3F5E] text-white text-center py-2 rounded-lg hover:bg-[#162f45]"
+                >
+                  Get Direction
+                </a>
               </div>
             </div>
           </div>
@@ -375,237 +621,487 @@
       </section>
 
       <!-- Museums Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6"><a href="museums.html">Museums</a></h2>
+      <section id="museums" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-[#1C3F5E]">Museums</h2>
+          <a
+            href="museums.html"
+            class="text-sm font-semibold text-[#DFB777] hover:underline flex items-center gap-1"
+          >
+            See more
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4">
-            <!-- Museum Card 1 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
+            <!-- National Museum of Cambodia -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/museums/national-museum.avif"
+                class="w-full h-52 object-cover"
+                alt="National Museum of Cambodia"
+              />
+
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm text-gray-800 mb-2">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
                   <span>Daun Penh</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">National Museum</h3>
-                <p class="text-sm text-gray-600 mb-2">Khmer art & culture</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$10</span>
-                  <span class="text-sm text-gray-500">8AM - 5PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  National Museum of Cambodia
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  Cambodia’s largest museum of cultural history, featuring Khmer
+                  sculpture and ancient artifacts.
+                </p>
+
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="text-[#DFB777] font-semibold">$10</span>
+                  <span class="text-gray-700">8AM – 5PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                  <span class="ml-2 text-gray-600 text-sm">(4.7)</span>
+                </div>
+
+                <a
+                  href="https://www.google.com/maps?q=National+Museum+Phnom+Penh"
+                  target="_blank"
+                  class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                >
+                  <i class="fa-solid fa-location-arrow text-xs"></i>
+                  Directions
+                </a>
               </div>
             </div>
 
-            <!-- Museum Card 2 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
+            <!-- Tuol Sleng Genocide Museum (S21) -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/museums/toul-sleng.avif"
+                class="w-full h-52 object-cover"
+                alt="Tuol Sleng Genocide Museum"
+              />
+
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm text-gray-800 mb-2">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
                   <span>Tuol Sleng</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Tuol Sleng Genocide Museum</h3>
-                <p class="text-sm text-gray-600 mb-2">Historical memorial</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$5</span>
-                  <span class="text-sm text-gray-500">8AM - 5PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Tuol Sleng Genocide Museum
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  Former high school turned Khmer Rouge prison. One of
+                  Cambodia’s most important memorial sites.
+                </p>
+
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="text-[#DFB777] font-semibold">$5</span>
+                  <span class="text-gray-700">8AM – 5PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                  <span class="ml-2 text-gray-600 text-sm">(4.8)</span>
+                </div>
+
+                <a
+                  href="https://www.google.com/maps?q=Tuol+Sleng+Genocide+Museum"
+                  target="_blank"
+                  class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                >
+                  <i class="fa-solid fa-location-arrow text-xs"></i>
+                  Directions
+                </a>
               </div>
             </div>
 
-            <!-- Museum Card 3 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1578926078513-e6b6e3e1b5c6?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
+            <!-- Cambodia Living Arts — CLA House -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/museums/living-art.jpg"
+                class="w-full h-52 object-cover"
+                alt="Cambodia Living Arts"
+              />
+
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm text-gray-800 mb-2">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
                   <span>Wat Phnom</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Cambodia Living Arts</h3>
-                <p class="text-sm text-gray-600 mb-2">Traditional arts</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$8</span>
-                  <span class="text-sm text-gray-500">9AM - 6PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Cambodia Living Arts
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  Center preserving Khmer performance arts through exhibitions
+                  and live cultural shows.
+                </p>
+
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="text-[#DFB777] font-semibold">$8</span>
+                  <span class="text-gray-700">9AM – 6PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                  <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
+                </div>
+
+                <a
+                  href="https://www.google.com/maps?q=Cambodia+Living+Arts+Phnom+Penh"
+                  target="_blank"
+                  class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                >
+                  <i class="fa-solid fa-location-arrow text-xs"></i>
+                  Directions
+                </a>
               </div>
             </div>
 
-            <!-- Museum Card 4 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Sisowath Quay</span>
+            <!-- Royal Palace Museum (Silver Pagoda) -->
+            <div
+              class="flex-none w-80 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/museums/royal-palace.jpg"
+                class="w-full h-52 object-cover"
+                alt="Royal Palace Museum"
+              />
+
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center text-sm text-gray-800 mb-2">
+                  <i class="fas fa-map-marker-alt mr-2 text-[#DFB777]"></i>
+                  <span>Street 178</span>
                 </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">River Museum</h3>
-                <p class="text-sm text-gray-600 mb-2">Maritime history</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$6</span>
-                  <span class="text-sm text-gray-500">8:30AM - 5:30PM</span>
+
+                <h3 class="font-semibold text-xl text-[#1C3F5E] mb-2">
+                  Royal Palace Museum
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 flex-1">
+                  One of Phnom Penh's most iconic sites. Explore Khmer royal
+                  artifacts and the legendary Silver Pagoda.
+                </p>
+
+                <div class="flex items-center justify-between mb-3 text-sm">
+                  <span class="text-[#DFB777] font-semibold">$10</span>
+                  <span class="text-gray-700">8AM–11AM, 2PM–5PM</span>
                 </div>
+
+                <div class="flex items-center text-[#DFB777] mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                  <span class="ml-2 text-gray-600 text-sm">(4.9)</span>
+                </div>
+
+                <a
+                  href="https://www.google.com/maps?q=Royal+Palace+Phnom+Penh"
+                  target="_blank"
+                  class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                >
+                  <i class="fa-solid fa-location-arrow text-xs"></i>
+                  Directions
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Sights to See Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6"><a href="sights2see.html">Sights to See</a></h2>
+      <!-- Sights to See Section (keep original style) -->
+      <section id="sights" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-[#1C3F5E]">Sights to See</h2>
+          <a
+            href="sights2see.html"
+            class="text-sm font-semibold text-[#DFB777] hover:underline flex items-center gap-1"
+          >
+            See more
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4">
-            <!-- Sight Card 1 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=400&h=250&fit=crop" alt="Sight" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Khan Daun Penh</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Royal Palace</h3>
-                <p class="text-sm text-gray-600 mb-2">Historic landmark</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$10</span>
-                  <span class="text-sm text-gray-500">8AM - 11AM, 2PM - 5PM</span>
-                </div>
+            <!-- Royal Palace -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5 flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/sights2see/royal-palace.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Royal Palace Phnom Penh"
+              />
+              <div
+                class="flex items-center text-sm text-[#1C3F5E] font-medium mb-2"
+              >
+                <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>Khan
+                Daun Penh
               </div>
+              <h3 class="text-xl font-semibold text-[#1C3F5E]">Royal Palace</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Stunning Khmer architecture and official residence of the King
+                of Cambodia.
+              </p>
+              <div class="flex justify-between mb-4">
+                <span class="text-[#be924b] font-semibold">$10</span>
+                <span class="text-gray-600 text-sm">8AM - 11AM, 2PM - 5PM</span>
+              </div>
+              <div class="flex items-center text-[#DFB777] mb-4">
+                <i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
+              </div>
+              <a
+                href="https://maps.google.com/?q=Royal+Palace+Phnom+Penh"
+                target="_blank"
+                class="mt-auto bg-[#DFB777] text-[#1C3F5E] font-semibold py-2 px-4 rounded-full text-center hover:bg-[#be924b] transition"
+              >
+                Direction
+              </a>
             </div>
 
-            <!-- Sight Card 2 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?w=400&h=250&fit=crop" alt="Sight" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Wat Phnom</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Wat Phnom Temple</h3>
-                <p class="text-sm text-gray-600 mb-2">Buddhist temple</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">$1</span>
-                  <span class="text-sm text-gray-500">7AM - 6PM</span>
-                </div>
+            <!-- Wat Phnom -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5 flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/sights2see/wat-phnom.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Wat Phnom"
+              />
+
+              <div
+                class="flex items-center text-sm text-[#1C3F5E] font-medium mb-2"
+              >
+                <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>Wat
+                Phnom
               </div>
+
+              <h3 class="text-xl font-semibold text-[#1C3F5E]">
+                Wat Phnom Temple
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Sacred hilltop temple and historical landmark of Phnom Penh.
+              </p>
+
+              <div class="flex justify-between mb-4">
+                <span class="text-[#be924b] font-semibold">$1</span>
+                <span class="text-gray-600 text-sm">7AM - 6PM</span>
+              </div>
+
+              <div class="flex items-center text-[#DFB777] mb-4">
+                <i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Wat+Phnom+Phnom+Penh"
+                target="_blank"
+                class="mt-auto bg-[#DFB777] text-[#1C3F5E] font-semibold py-2 px-4 rounded-full text-center hover:bg-[#be924b] transition"
+              >
+                Direction
+              </a>
             </div>
 
-            <!-- Sight Card 3 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1555217851-0365df0a8f96?w=400&h=250&fit=crop" alt="Sight" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Central Market</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Central Market (Phsar Thmei)</h3>
-                <p class="text-sm text-gray-600 mb-2">Shopping & food</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Free</span>
-                  <span class="text-sm text-gray-500">7AM - 5PM</span>
-                </div>
+            <!-- Central Market -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5 flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/sights2see/central-market.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Central Market Phnom Penh"
+              />
+
+              <div class="flex items-center text-sm text-[#1C3F5E] mb-2">
+                <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i
+                >Central Market
               </div>
+
+              <h3 class="text-xl font-semibold text-[#1C3F5E]">
+                Central Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Iconic Art Deco market offering jewelry, souvenirs, and local
+                goods.
+              </p>
+
+              <div class="flex justify-between mb-4">
+                <span class="text-[#be924b] font-semibold">Free</span>
+                <span class="text-gray-600 text-sm">7AM - 5PM</span>
+              </div>
+
+              <div class="flex items-center text-[#DFB777] mb-4">
+                <i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.5)</span>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Central+Market+Phnom+Penh"
+                target="_blank"
+                class="mt-auto bg-[#DFB777] text-[#1C3F5E] font-semibold py-2 px-4 rounded-full hover:bg-[#be924b] text-center"
+              >
+                Direction
+              </a>
             </div>
 
-            <!-- Sight Card 4 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=250&fit=crop" alt="Sight" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Sisowath Quay</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Riverside Promenade</h3>
-                <p class="text-sm text-gray-600 mb-2">Scenic walkway</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Free</span>
-                  <span class="text-sm text-gray-500">Open 24/7</span>
-                </div>
+            <!-- Riverside Promenade -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5 flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/sights2see/riverside.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Riverside Promenade Phnom Penh"
+              />
+
+              <div class="flex items-center text-sm text-[#1C3F5E] mb-2">
+                <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i
+                >Sisowath Quay
               </div>
+
+              <h3 class="text-xl font-semibold text-[#1C3F5E]">
+                Riverside Promenade
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Stunning riverfront walkway perfect for evening strolls and
+                sunsets.
+              </p>
+
+              <div class="flex justify-between mb-4">
+                <span class="text-[#be924b] font-semibold">Free</span>
+                <span class="text-gray-600 text-sm">Open 24/7</span>
+              </div>
+
+              <div class="flex items-center text-[#DFB777] mb-4">
+                <i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.8)</span>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Sisowath+Quay"
+                target="_blank"
+                class="mt-auto bg-[#DFB777] text-[#1C3F5E] font-semibold py-2 px-4 rounded-full hover:bg-[#be924b] text-center"
+              >
+                Direction
+              </a>
+            </div>
+
+            <!-- Russian Market -->
+            <div
+              class="flex-none w-80 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-5 flex flex-col"
+            >
+              <img
+                src="/public/assets/explore/sights2see/russian-market.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Russian Market Phnom Penh"
+              />
+
+              <div class="flex items-center text-sm text-[#1C3F5E] mb-2">
+                <i class="fa-solid fa-location-dot text-[#DFB777] mr-1"></i>Toul
+                Tom Poung
+              </div>
+
+              <h3 class="text-xl font-semibold text-[#1C3F5E]">
+                Russian Market
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Famous market for bargains, clothing, souvenirs, and street
+                food.
+              </p>
+
+              <div class="flex justify-between mb-4">
+                <span class="text-[#be924b] font-semibold">Free</span>
+                <span class="text-gray-600 text-sm">7AM - 5PM</span>
+              </div>
+
+              <div class="flex items-center text-[#DFB777] mb-4">
+                <i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.4)</span>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Russian+Market+Phnom+Penh"
+                target="_blank"
+                class="mt-auto bg-[#DFB777] text-[#1C3F5E] font-semibold py-2 px-4 rounded-full hover:bg-[#be924b] text-center"
+              >
+                Direction
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Vibe Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6"><a href="#">Vibe</a></h2>
+
+      <section
+        id="vibe"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20"
+      >
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-[#1C3F5E]">Choose Your Vibe</h2>
+          <a
+            href="/public/pages/choose-your-vibe-page/your-vibe.html"
+            class="text-sm font-semibold text-[#DFB777] hover:underline flex items-center gap-1"
+          >
+            Let's get your vibe
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- Horizontal Scroll Container -->
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4">
-            <!-- Vibe Card 1 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=250&fit=crop" alt="Vibe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Bassac Lane</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Nightlife District</h3>
-                <p class="text-sm text-gray-600 mb-2">Bars & clubs</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Evening Scene</span>
-                  <span class="text-sm text-gray-500">6PM - Late</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vibe Card 2 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=250&fit=crop" alt="Vibe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>BKK1</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Trendy & Hip</h3>
-                <p class="text-sm text-gray-600 mb-2">Modern lifestyle</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">All Day</span>
-                  <span class="text-sm text-gray-500">10AM - 12AM</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vibe Card 3 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=400&h=250&fit=crop" alt="Vibe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Old Town</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Cultural Heritage</h3>
-                <p class="text-sm text-gray-600 mb-2">Traditional charm</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Daytime</span>
-                  <span class="text-sm text-gray-500">8AM - 6PM</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vibe Card 4 -->
-            <div class="flex-none w-72 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=250&fit=crop" alt="Vibe" class="w-full h-48 object-cover" />
-              <div class="p-4">
-                <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  <span>Island</span>
-                </div>
-                <h3 class="font-semibold text-lg text-gray-900 mb-1">Relaxed & Chill</h3>
-                <p class="text-sm text-gray-600 mb-2">Peaceful spots</p>
-                <div class="flex items-center justify-between">
-                  <span class="text-[#4A90E2] font-semibold">Anytime</span>
-                  <span class="text-sm text-gray-500">Open Daily</span>
-                </div>
-              </div>
+            <!-- Iframe Container -->
+            <div
+              class="flex-none w-[1400px] h-[430px] rounded-xl overflow-hidden shadow-lg border border-gray-200"
+            >
+              <a href="/public/pages/choose-your-vibe-page/your-vibe.html">
+                <iframe
+                  src="your-vibe-iframe.html"
+                  class="w-full h-full"
+                ></iframe>
+              </a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- footer -->
+    <!-- Footer Component -->
     <footer
-      class="bg-[url('../../assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
+      class="bg-[url('/public/assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
     >
       <div class="bg-[#202D45]/60 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
@@ -616,7 +1112,7 @@
               class="flex flex-col items-center sm:items-start text-center sm:text-left"
             >
               <img
-                src="../../assets/footer-logo.svg"
+                src="/public/assets/footer-logo.svg"
                 alt="Phnom Penh Compass Logo"
                 class="h-auto w-auto mx-auto sm:mx-0"
               />

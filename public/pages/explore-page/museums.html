@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Museums - Phnom Penh Compass</title>
+    <title>Phnom Penh Compass</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,429 +19,571 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      * {
-        font-family: 'Raleway', sans-serif;
-      }
-      
-      .menu-overlay {
-        display: none;
-      }
-
-      #menu-toggle:checked ~ .menu-overlay {
-        display: block;
-      }
-
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      #menu-toggle:checked ~ .mobile-menu {
-        transform: translateX(0);
-      }
-    </style>
+    <link rel="stylesheet" href="/src/styles.css" />
   </head>
 
   <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
-    <!-- navbar -->
-    <input type="checkbox" id="menu-toggle" class="hidden" />
+    <!-- mobile menu toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
+    <!-- dark overlay -->
     <label
       for="menu-toggle"
-      class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
-    ></label>
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden peer-checked:block"
+    >
+    </label>
 
+    <!-- mobile menu penel -->
     <div
-      class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
+      class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 translate-x-full peer-checked:translate-x-0 transition-all duration-300 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center p-6 border-b border-gray-200"
       >
-        <h2 class="text-xl font-bold text-gray-900">Menu</h2>
-        <label
-          for="menu-toggle"
-          class="cursor-pointer text-gray-700 hover:text-gray-900"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+        <h2 class="text-xl font-bold">Menu</h2>
+        <label for="menu-toggle" class="cursor-pointer">
+          <i class="fa-solid fa-xmark text-xl"></i>
         </label>
       </div>
 
-      <div>
+      <div class="space-y-1">
         <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          href="/public/pages/index.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Home</a
+        >
+        <a
+          href="/public/pages/explore-page/explore.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
           >Explore</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Choose Your Vibe</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Services</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Do's & Don'ts</a
         >
 
         <a
-          href="#"
-          class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium"
+          href="/public/pages/choose-your-vibe-page/your-vibe.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Choose Your Vibe</a
         >
-          <div
-            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3"
+
+        <input type="checkbox" id="mobile-services" class="hidden peer/m" />
+        <label
+          for="mobile-services"
+          class="flex justify-between items-center px-6 py-4 border-b cursor-pointer hover:bg-gray-100"
+        >
+          Services
+          <i
+            class="fa-solid fa-chevron-down text-sm peer-checked/m:rotate-180 transition"
+          ></i>
+        </label>
+        <!-- services' dropdwon -->
+        <div
+          class="max-h-0 overflow-hidden peer-checked/m:max-h-96 transition-all"
+        >
+          <a
+            href="/public/pages/services-page/emergency.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Emergency</a
           >
-            <svg
-              class="w-5 h-5 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
+          <a
+            href="/public/pages/services-page/hospitals.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Hospitals</a
+          >
+          <a
+            href="/public/pages/services-page/embassies.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Embassies</a
+          >
+          <a
+            href="/public/pages/services-page/useful-app.html"
+            class="block px-10 py-3 hover:bg-gray-100"
+            >Useful Apps</a
+          >
+        </div>
+
+        <a
+          href="/public/pages/dos-donts-page/dos-donts.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a href="#" class="flex items-center px-6 py-4 hover:bg-gray-100">
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white mr-3"
+          >
+            <i class="fa-solid fa-user"></i>
           </div>
           Profile
         </a>
       </div>
     </div>
 
-    <!-- Navbar for large screen -->
-    <header>
-      <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
-        <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-10">
-          <div class="flex items-center justify-between h-20">
-            <div class="flex items-center gap-3">
-              <img
-                src="../../assets/phnompenh-compass-logo.svg"
-                alt="Phnom Penh Compass Logo"
-                class="h-auto w-auto"
-              />
-            </div>
+    <!-- Desktop Navbar -->
+    <header class="fixed top-0 left-0 w-full z-30 bg-[#FBFCF6] shadow-sm">
+      <nav
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- logo -->
+        <a href="/public/pages/index.html">
+          <img
+            src="/public/assets/phnompenh-compass-logo.svg"
+            alt="PP Compass Logo"
+          />
+        </a>
 
-            <div class="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Explore</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Choose Your Vibe</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Services</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Do's & Don'ts</a
-              >
-            </div>
+        <!-- menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a
+            href="/public/pages/explore-page/explore.html"
+            class="hover:text-yellow-600"
+            >Explore</a
+          >
+          <a
+            href="/public/pages/choose-your-vibe-page/your-vibe.html"
+            class="hover:text-yellow-600"
+            >Choose Your Vibe</a
+          >
 
-            <div class="hidden md:flex items-center">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <svg
-                  class="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
-              </a>
-            </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-yellow-600">
+              Services
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </button>
 
-            <div class="md:hidden">
-              <label
-                for="menu-toggle"
-                class="cursor-pointer text-gray-700 hover:text-gray-900"
+            <!-- services's dropdown -->
+            <div
+              class="absolute left-0 top-full mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+            >
+              <a
+                href="/public/pages/services-page/emergency.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Emergency</a
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </label>
+              <a
+                href="/public/pages/services-page/hospitals.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Hospitals</a
+              >
+              <a
+                href="/public/pages/services-page/embassies.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Embassies</a
+              >
+              <a
+                href="/public/pages/services-page/useful-app.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Useful Apps</a
+              >
             </div>
           </div>
+
+          <a
+            href="/public/pages/dos-donts-page/dos-donts.html"
+            class="hover:text-yellow-600"
+            >Do's & Don'ts</a
+          >
         </div>
+
+        <!-- user's profile -->
+        <div class="hidden md:flex items-center">
+          <div
+            class="w-8 h-8 bg-gray-700 rounded-full flex justify-center items-center text-white"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- mobile toggle button -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </label>
       </nav>
     </header>
 
     <!-- content body  -->
-    <main class="flex-grow">
+    <main class="pt-20 pb-24 max-w-7xl mx-auto px-6">
       <!-- Hero Section -->
-      <section class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <a href="explore.html" class="inline-flex items-center gap-2 text-[#4A90E2] hover:text-[#3A7BC8] font-medium mb-6 transition-colors">
+      <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <a
+          href="explore.html"
+          class="inline-flex items-center gap-2 text-gray-700 hover:text-black font-medium mb-6 transition-colors"
+        >
           <i class="fas fa-arrow-left"></i>
           Back to Explore
         </a>
+
         <div class="text-center">
-          <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">Museums in Phnom Penh</h1>
+          <h1 class="text-4xl sm:text-5xl font-bold text-[#1C3F5E] mb-4">
+            Museums in Phnom Penh
+          </h1>
           <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-            Immerse yourself in Cambodia's rich history and vibrant culture through world-class museums and cultural centers.
+            Immerse yourself in Cambodia's rich history and vibrant culture
+            through world-class museums and cultural centers.
           </p>
         </div>
       </section>
 
-      <!-- Museums Grid Section -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
+      <!-- Museums Grid -->
+      <section class="px-4 sm:px-6 lg:px-8 pt-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Museum Card 1 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
+          <!-- National Museum of Cambodia -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+          >
+            <img
+              src="/public/assets/explore/museums/national-museum.avif"
+              class="w-full h-48 object-cover"
+            />
+
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Daun Penh</span>
+                <span class="text-black">Daun Penh</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">National Museum</h3>
-              <p class="text-sm text-gray-600 mb-3">Explore the world's finest collection of Khmer art, sculptures, and ceramics from the Angkorian period.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                National Museum of Cambodia
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                Cambodia’s largest museum of cultural history, featuring Khmer
+                sculpture and ancient artifacts.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$10</span>
-                <span class="text-sm text-gray-500">8AM - 5PM</span>
+                <span class="text-[#DFB777] font-semibold">$10</span>
+                <span class="text-sm text-gray-600">8AM – 5PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.7)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=National+Museum+Phnom+Penh"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i>
+                Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 2 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
+          <!-- Tuol Sleng Genocide Museum (S21) -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/toul-sleng.avif"
+              class="w-full h-48 object-cover"
+            />
+
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Tuol Sleng</span>
+                <span class="text-black">Tuol Sleng</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Tuol Sleng Genocide Museum</h3>
-              <p class="text-sm text-gray-600 mb-3">A sobering memorial documenting Cambodia's darkest period. Essential for understanding recent history.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Tuol Sleng Genocide Museum
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                Former high school turned Khmer Rouge prison. One of Cambodia’s
+                most important memorial sites.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$5</span>
-                <span class="text-sm text-gray-500">8AM - 5PM</span>
+                <span class="text-[#DFB777] font-semibold">$5</span>
+                <span class="text-sm text-gray-600">8AM – 5PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.8)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Tuol+Sleng+Genocide+Museum"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i>
+                Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 3 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1578926078513-e6b6e3e1b5c6?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
+          <!-- Cambodia Living Arts — CLA House -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/living-art.jpg"
+              class="w-full h-48 object-cover"
+            />
+
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Wat Phnom</span>
+                <span class="text-black">Wat Phnom</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Cambodia Living Arts</h3>
-              <p class="text-sm text-gray-600 mb-3">Dedicated to preserving traditional Khmer performing arts. Live performances and exhibitions available.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Cambodia Living Arts
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                Center preserving Khmer performance arts through exhibitions and
+                live cultural shows.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$8</span>
-                <span class="text-sm text-gray-500">9AM - 6PM</span>
+                <span class="text-[#DFB777] font-semibold">$8</span>
+                <span class="text-sm text-gray-600">9AM – 6PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Cambodia+Living+Arts+Phnom+Penh"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 4 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-            <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Sisowath Quay</span>
-              </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">River Museum</h3>
-              <p class="text-sm text-gray-600 mb-3">Discover Cambodia's maritime history and the importance of the Mekong and Tonle Sap rivers.</p>
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$6</span>
-                <span class="text-sm text-gray-500">8:30AM - 5:30PM</span>
-              </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <span class="ml-2 text-gray-600 text-sm">(4.2)</span>
-              </div>
-            </div>
-          </div>
+          <!-- Royal Palace Museum (Silver Pagoda) -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/royal-palace.jpg"
+              class="w-full h-48 object-cover"
+            />
 
-          <!-- Museum Card 5 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Street 178</span>
+                <span class="text-black">Street 178</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">The Royal Palace Museum</h3>
-              <p class="text-sm text-gray-600 mb-3">Tour the official residence of the King. Marvel at the Silver Pagoda and stunning throne halls.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Royal Palace Museum
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                One of Phnom Penh's most iconic sites. Explore Khmer royal
+                artifacts and the legendary Silver Pagoda.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$10</span>
-                <span class="text-sm text-gray-500">8AM - 11AM, 2PM - 5PM</span>
+                <span class="text-[#DFB777] font-semibold">$10</span>
+                <span class="text-sm text-gray-600">8AM–11AM, 2PM–5PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.9)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Royal+Palace+Phnom+Penh"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 6 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1566127444979-b3d2b64d6cc4?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
+          <!-- Bophana Audiovisual Resource Center -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/bophana.jpeg"
+              class="w-full h-48 object-cover"
+            />
+
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Street 13</span>
+                <span class="text-black">Street 13</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Bophana Audiovisual Center</h3>
-              <p class="text-sm text-gray-600 mb-3">Archive of Cambodian films, photos, and audio. Free screenings and exhibitions showcasing Khmer culture.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Bophana Audiovisual Center
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                A cultural archive preserving Cambodian films, recordings, and
+                historical photographs.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">Free</span>
-                <span class="text-sm text-gray-500">8AM - 6PM</span>
+                <span class="text-[#DFB777] font-semibold">Free</span>
+                <span class="text-sm text-gray-600">8AM – 6PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.5)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Bophana+Center+Phnom+Penh"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 7 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
-            <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
-                <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Russian Blvd</span>
-              </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Cambodia-Vietnam Museum</h3>
-              <p class="text-sm text-gray-600 mb-3">Commemorates the friendship between Cambodia and Vietnam. Historical artifacts and photographs.</p>
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">$3</span>
-                <span class="text-sm text-gray-500">8AM - 5PM</span>
-              </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <span class="ml-2 text-gray-600 text-sm">(4.1)</span>
-              </div>
-            </div>
-          </div>
+          <!-- Meta house -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/meta-house.jpg"
+              class="w-full h-48 object-cover"
+            />
 
-          <!-- Museum Card 8 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1577720643272-265f28887f21?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>BKK1</span>
+                <span class="text-black">BKK1</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Meta House</h3>
-              <p class="text-sm text-gray-600 mb-3">Contemporary art gallery and cultural center. Film screenings, exhibitions, and creative workshops.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Meta House Cultural Center
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                Art exhibitions, films, and cultural programs supporting modern
+                Cambodian creators.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">Free-$5</span>
-                <span class="text-sm text-gray-500">10AM - 10PM</span>
+                <span class="text-[#DFB777] font-semibold">Free–$5</span>
+                <span class="text-sm text-gray-600">10AM – 10PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
                 <span class="ml-2 text-gray-600 text-sm">(4.4)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Meta+House+Phnom+Penh"
+                target="_blank"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
             </div>
           </div>
 
-          <!-- Museum Card 9 -->
-          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?w=400&h=250&fit=crop" alt="Museum" class="w-full h-48 object-cover" />
+          <!-- sild island cultural (koh dach) -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/silk-island.jpg"
+              class="w-full h-48 object-cover"
+            />
+
             <div class="p-5">
-              <div class="flex items-center text-sm text-[#4A90E2] mb-2">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <span>Street 240</span>
+                <span class="text-black">Koh Dach (Silk Island)</span>
               </div>
-              <h3 class="font-semibold text-xl text-gray-900 mb-2">Cambodian Children's Painting Gallery</h3>
-              <p class="text-sm text-gray-600 mb-3">Uplifting collection of artwork by local children. Proceeds support arts education programs.</p>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Silk Weaving Museum
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                A cultural space showcasing traditional Khmer silk-weaving and
+                hand-loom workshops.
+              </p>
+
               <div class="flex items-center justify-between mb-3">
-                <span class="text-[#4A90E2] font-semibold">Free</span>
-                <span class="text-sm text-gray-500">9AM - 5PM</span>
+                <span class="text-[#DFB777] font-semibold">$3</span>
+                <span class="text-sm text-gray-600">9AM – 5PM</span>
               </div>
-              <div class="flex items-center text-yellow-500">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span class="ml-2 text-gray-600 text-sm">(4.8)</span>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.3)</span>
               </div>
+
+              <a
+                href="https://www.google.com/maps?q=Silk+Island+Phnom+Penh"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                target="_blank"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
+            </div>
+          </div>
+
+          <!-- dinosaurs alive -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+          >
+            <img
+              src="/public/assets/explore/museums/dinosaur.jpg"
+              class="w-full h-48 object-cover"
+            />
+
+            <div class="p-5">
+              <div class="flex items-center text-sm text-[#DFB777] mb-2">
+                <i class="fas fa-map-marker-alt mr-1"></i>
+                <span class="text-black">OCIC</span>
+              </div>
+
+              <h3 class="font-semibold text-xl text-gray-900 mb-2">
+                Dinosaurs Alive Museum
+              </h3>
+              <p class="text-sm text-gray-600 mb-3">
+                Interactive dinosaur exhibits perfect for kids and families.
+                Life-sized models and activities.
+              </p>
+
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[#DFB777] font-semibold">$5–$8</span>
+                <span class="text-sm text-gray-600">10AM – 10PM</span>
+              </div>
+
+              <div class="flex items-center text-[#DFB777] mb-3">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+                <span class="ml-2 text-gray-600 text-sm">(4.6)</span>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/place/Dinosaurs+Alive/@11.5939203,104.9242532,17z/data=!3m1!4b1!4m6!3m5!1s0x3109539b7bb1a9e3:0xf256ae8c73284b12!8m2!3d11.5939203!4d104.9268335!16s%2Fg%2F11f9yywg4y!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+                class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1C3F5E] text-white font-semibold rounded-lg hover:bg-[#162e4a] transition"
+                target="_blank"
+              >
+                <i class="fa-solid fa-location-arrow"></i> Directions
+              </a>
             </div>
           </div>
         </div>

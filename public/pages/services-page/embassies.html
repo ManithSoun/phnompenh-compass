@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,165 +23,184 @@
   </head>
 
   <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
-    <!-- navbar -->
-    <!-- for mobile responsive navbar -->
-    <input type="checkbox" id="menu-toggle" class="hidden" />
+    <!-- mobile menu toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
 
+    <!-- dark overlay -->
     <label
       for="menu-toggle"
-      class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"
-    ></label>
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden peer-checked:block"
+    >
+    </label>
 
+    <!-- mobile menu penel -->
     <div
-      class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 overflow-y-auto"
+      class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 translate-x-full peer-checked:translate-x-0 transition-all duration-300 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center p-6 border-b border-gray-200"
       >
-        <h2 class="text-xl font-bold text-gray-900">Menu</h2>
-        <label
-          for="menu-toggle"
-          class="cursor-pointer text-gray-700 hover:text-gray-900"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+        <h2 class="text-xl font-bold">Menu</h2>
+        <label for="menu-toggle" class="cursor-pointer">
+          <i class="fa-solid fa-xmark text-xl"></i>
         </label>
       </div>
 
-      <div>
+      <div class="space-y-1">
         <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
+          href="/public/pages/index.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Home</a
+        >
+        <a
+          href="/public/pages/explore-page/explore.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
           >Explore</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Choose Your Vibe</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Services</a
-        >
-        <a
-          href="#"
-          class="block px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium border-b border-gray-100"
-          >Do's & Don'ts</a
         >
 
         <a
-          href="#"
-          class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-100 hover:text-yellow-600 font-medium"
+          href="/public/pages/choose-your-vibe-page/your-vibe.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Choose Your Vibe</a
         >
-          <div
-            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3"
+
+        <input type="checkbox" id="mobile-services" class="hidden peer/m" />
+        <label
+          for="mobile-services"
+          class="flex justify-between items-center px-6 py-4 border-b cursor-pointer hover:bg-gray-100"
+        >
+          Services
+          <i
+            class="fa-solid fa-chevron-down text-sm peer-checked/m:rotate-180 transition"
+          ></i>
+        </label>
+        <!-- services' dropdwon -->
+        <div
+          class="max-h-0 overflow-hidden peer-checked/m:max-h-96 transition-all"
+        >
+          <a
+            href="/public/pages/services-page/emergency.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Emergency</a
           >
-            <svg
-              class="w-5 h-5 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
+          <a
+            href="/public/pages/services-page/hospitals.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Hospitals</a
+          >
+          <a
+            href="/public/pages/services-page/embassies.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Embassies</a
+          >
+          <a
+            href="/public/pages/services-page/useful-app.html"
+            class="block px-10 py-3 hover:bg-gray-100"
+            >Useful Apps</a
+          >
+        </div>
+
+        <a
+          href="/public/pages/dos-donts-page/dos-donts.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a href="#" class="flex items-center px-6 py-4 hover:bg-gray-100">
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white mr-3"
+          >
+            <i class="fa-solid fa-user"></i>
           </div>
           Profile
         </a>
       </div>
     </div>
 
-    <!-- Navbar for large screen -->
-    <header>
-      <nav class="bg-[#FBFCF6] drop-shadow-sm relative">
-        <div class="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-10">
-          <div class="flex items-center justify-between h-20">
-            <div class="flex items-center gap-3">
-              <img
-                src="/public/assets/phnompenh-compass-logo.svg"
-                alt="Phnom Penh Compass Logo"
-                class="h-auto w-auto"
-              />
-            </div>
+    <!-- Desktop Navbar -->
+    <header class="fixed top-0 left-0 w-full z-30 bg-[#FBFCF6] shadow-sm">
+      <nav
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- logo -->
+        <a href="/public/pages/index.html">
+          <img
+            src="/public/assets/phnompenh-compass-logo.svg"
+            alt="PP Compass Logo"
+          />
+        </a>
 
-            <div class="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Explore</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Choose Your Vibe</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Services</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-yellow-600 transition-colors font-medium"
-                >Do's & Don'ts</a
-              >
-            </div>
+        <!-- menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a
+            href="/public/pages/explore-page/explore.html"
+            class="hover:text-yellow-600"
+            >Explore</a
+          >
+          <a
+            href="/public/pages/choose-your-vibe-page/your-vibe.html"
+            class="hover:text-yellow-600"
+            >Choose Your Vibe</a
+          >
 
-            <div class="hidden md:flex items-center">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <svg
-                  class="w-6 h-6 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
-              </a>
-            </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-yellow-600">
+              Services
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </button>
 
-            <div class="md:hidden">
-              <label
-                for="menu-toggle"
-                class="cursor-pointer text-gray-700 hover:text-gray-900"
+            <!-- services's dropdown -->
+            <div
+              class="absolute left-0 top-full mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+            >
+              <a
+                href="/public/pages/services-page/emergency.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Emergency</a
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </label>
+              <a
+                href="/public/pages/services-page/hospitals.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Hospitals</a
+              >
+              <a
+                href="/public/pages/services-page/embassies.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Embassies</a
+              >
+              <a
+                href="/public/pages/services-page/useful-app.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Useful Apps</a
+              >
             </div>
           </div>
+
+          <a
+            href="/public/pages/dos-donts-page/dos-donts.html"
+            class="hover:text-yellow-600"
+            >Do's & Don'ts</a
+          >
         </div>
+
+        <!-- user's profile -->
+        <div class="hidden md:flex items-center">
+          <div
+            class="w-8 h-8 bg-gray-700 rounded-full flex justify-center items-center text-white"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- mobile toggle button -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </label>
       </nav>
     </header>
 
-    <main class="pt-20 pb-24 max-w-6xl mx-auto px-6">
+    <!-- content body -->
+    <main class="pt-40 pb-24 w-full max-w-7xl mx-auto px-6 lg:px-16">
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-[#1C3F5E]">
           Embassies & Consulates
@@ -205,17 +223,14 @@
       </div>
 
       <!-- embassy's card -->
-      <div class="space-y-10">
-        <!-- ========================= -->
-        <!-- usa Embassy -->
-        <!-- ========================= -->
+      <div class="space-y-12">
+        <!-- usa -->
         <div
-          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col lg:flex-row gap-8 hover:shadow-lg transition"
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
         >
           <img
             src="/public/assets/services/flags/usa.png"
-            class="w-40 rounded-md"
-            alt="USA Flag"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
           />
 
           <div class="flex-1">
@@ -225,51 +240,44 @@
 
             <p class="mt-3 text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-[#be924b]"></i>
-              1 Christopher Howes (96), Phnom Penh, Cambodia
+              1 Christopher Howes (96), Phnom Penh
             </p>
 
-            <p class="mt-1 text-gray-700 flex items-center gap-2">
+            <p class="text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-building text-[#be924b]"></i>
-              Mon - Fri • 8:30 AM - 5:00 PM
+              Mon–Fri • 8:30 AM – 5:00 PM
             </p>
+          </div>
 
-            <div class="flex gap-4 mt-6">
-              <a
-                href="tel:+85523728345"
-                class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-100"
-              >
-                Call Office
-              </a>
-
-              <a
-                href="https://maps.app.goo.gl/qc3SXTBPhSE3D5DUA"
-                class="px-6 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f]"
-              >
-                Get Direction
-              </a>
-
-              <a
-                href="https://kh.usembassy.gov/"
-                target="_blank"
-                class="px-6 py-2 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-gray-100"
-              >
-                View site
-                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-              </a>
-            </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523728345"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/qc3SXTBPhSE3D5DUA"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://kh.usembassy.gov/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 w-full"
+            >
+              View Site
+              <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </a>
           </div>
         </div>
 
-        <!-- ========================= -->
-        <!-- Embassy of Japan -->
-        <!-- ========================= -->
+        <!-- japan -->
         <div
-          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col lg:flex-row gap-8 hover:shadow-lg transition"
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
         >
           <img
             src="/public/assets/services/flags/japan.png"
-            class="w-40 rounded-md"
-            alt="Japan Flag"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
           />
 
           <div class="flex-1">
@@ -279,46 +287,44 @@
 
             <p class="mt-3 text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-[#be924b]"></i>
-              No. 194, Blvd. Preah Norodom, Phnom Penh, Cambodia
+              No. 194, Preah Norodom Blvd, Phnom Penh
             </p>
 
-            <p class="mt-1 text-gray-700 flex items-center gap-2">
+            <p class="text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-building text-[#be924b]"></i>
-              Mon - Fri • 8:00 AM - 4:30 PM
+              Mon–Fri • 8:00 AM – 4:30 PM
             </p>
+          </div>
 
-            <div class="flex gap-4 mt-6">
-              <a href="tel:+85523725501" class="btn-secondary">Call Office</a>
-
-              <a
-                href="https://maps.app.goo.gl/9qpToZCdYVYyqfRw5"
-                class="btn-primary"
-              >
-                Get Direction
-              </a>
-
-              <a
-                href="https://www.kh.emb-japan.go.jp/itprtop_en/index.html"
-                class="btn-view"
-                target="_blank"
-              >
-                View site
-                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-              </a>
-            </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523725501"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/9qpToZCdYVYyqfRw5"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://www.kh.emb-japan.go.jp/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 w-full"
+            >
+              View Site
+              <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </a>
           </div>
         </div>
 
-        <!-- ========================= -->
-        <!-- Embassy of China -->
-        <!-- ========================= -->
+        <!-- china -->
         <div
-          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col lg:flex-row gap-8 hover:shadow-lg transition"
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
         >
           <img
             src="/public/assets/services/flags/china.png"
-            class="w-40 rounded-md"
-            alt="China Flag"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
           />
 
           <div class="flex-1">
@@ -328,46 +334,44 @@
 
             <p class="mt-3 text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-[#be924b]"></i>
-              156 Preah Norodom Blvd, Phnom Penh, Cambodia
+              156 Preah Norodom Blvd, Phnom Penh
             </p>
 
-            <p class="mt-1 text-gray-700 flex items-center gap-2">
+            <p class="text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-building text-[#be924b]"></i>
-              Mon - Fri • 8:00 AM - 11:30 AM
+              Mon–Fri • 8:00 AM – 11:30 AM
             </p>
+          </div>
 
-            <div class="flex gap-4 mt-6">
-              <a href="tel:+85523720119" class="btn-secondary">Call Office</a>
-
-              <a
-                href="https://maps.app.goo.gl/zC6vDCjsf5TNGTR27"
-                class="btn-primary"
-              >
-                Get Direction
-              </a>
-
-              <a
-                href="https://kh.china-embassy.gov.cn/eng/"
-                class="btn-view"
-                target="_blank"
-              >
-                View site
-                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-              </a>
-            </div>
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523720119"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/zC6vDCjsf5TNGTR27"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://kh.china-embassy.gov.cn/eng/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 w-full"
+            >
+              View Site
+              <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </a>
           </div>
         </div>
 
-        <!-- ========================= -->
-        <!-- Australia Embassy -->
-        <!-- ========================= -->
+        <!-- australia -->
         <div
-          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col lg:flex-row gap-8 hover:shadow-lg transition"
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
         >
           <img
             src="/public/assets/services/flags/australia.png"
-            class="w-40 rounded-md"
-            alt="Australia Flag"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
           />
 
           <div class="flex-1">
@@ -377,39 +381,452 @@
 
             <p class="mt-3 text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-[#be924b]"></i>
-              No. 16B, National Assembly Street, Phnom Penh, Cambodia
+              National Assembly Street, Phnom Penh
             </p>
-
-            <p class="mt-1 text-gray-700 flex items-center gap-2">
+            <p class="text-gray-700 flex items-center gap-2">
               <i class="fa-solid fa-building text-[#be924b]"></i>
-              Mon - Fri • 8:00 AM - 5:00 PM
+              Mon–Fri • 8:00 AM – 5:00 PM
             </p>
+          </div>
 
-            <div class="flex gap-4 mt-6">
-              <a href="tel:+85523727082" class="btn-secondary">Call Office</a>
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523727082"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/VbKj9iYhYRXEX2M49"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://cambodia.embassy.gov.au/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 w-full"
+            >
+              View Site
+            </a>
+          </div>
+        </div>
 
-              <a
-                href="https://maps.app.goo.gl/VbKj9iYhYRXEX2M49"
-                class="btn-primary"
-              >
-                Get Direction
-              </a>
+        <!-- uk -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/uk.png"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
 
-              <a
-                href="https://cambodia.embassy.gov.au/"
-                class="btn-view"
-                target="_blank"
-              >
-                View site
-                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-              </a>
-            </div>
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              British Embassy Phnom Penh
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              No. 27, Street 75, Phnom Penh
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 8:00 AM – 4:00 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523800500"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/vt3fCj6Y94JYVSbQ7"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://www.gov.uk/world/organisations/british-embassy-phnom-penh"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 w-full"
+            >
+              View Site
+            </a>
+          </div>
+        </div>
+
+        <!-- france -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/france.png"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
+
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              Embassy of France
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              Preah Monivong Blvd, Phnom Penh
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 8:00 AM – 5:30 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523216202"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/pmHCa4zw8pJq3sop9"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] transition text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://kh.ambafrance.org/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition w-full"
+              >View Site</a
+            >
+          </div>
+        </div>
+        <!-- south korea -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/south-korea.png"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
+
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              Embassy of South Korea
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              No. 313, Preah Monivong Blvd
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 8:30 AM – 5:30 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523995070"
+              lass="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/fK3uHZiZ3MnKsgS87"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] transition text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://overseas.mofa.go.kr/kh-en/index.do"
+              target="_blank"
+              cclass="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition w-full"
+              >View Site</a
+            >
+          </div>
+        </div>
+        <!-- singapore -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/singaporejpg.webp"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
+
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              Embassy of Singapore
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              129 Norodom Blvd, Phnom Penh
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 8:00 AM – 4:30 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523222162"
+              lass="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/7xxYo7pEkda4p9iQA"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] transition text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://www.mfa.gov.sg/phnompenh"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition w-full"
+              >View Site</a
+            >
+          </div>
+        </div>
+        <!-- germany -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/germany.png"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
+
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              Embassy of Germany
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              No. 76–78, Street 214, Phnom Penh
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 8:00 AM – 4:00 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523216646"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/fZDdYH7f7tAprL6t5"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] transition text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://phnom-penh.diplo.de/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition w-full"
+              >View Site</a
+            >
+          </div>
+        </div>
+
+        <!-- india -->
+        <div
+          class="bg-white shadow-md border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row gap-10 hover:shadow-xl transition"
+        >
+          <img
+            src="/public/assets/services/flags/india.svg.png"
+            class="w-32 md:w-40 lg:w-48 rounded-md"
+          />
+
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold text-[#1C3F5E]">
+              Embassy of India
+            </h2>
+
+            <p class="mt-3 text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-[#be924b]"></i>
+              50 Norodom Blvd, Phnom Penh
+            </p>
+            <p class="text-gray-700 flex items-center gap-2">
+              <i class="fa-solid fa-building text-[#be924b]"></i>
+              Mon–Fri • 9:00 AM – 5:30 PM
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <a
+              href="tel:+85523210145"
+              class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition text-center w-full"
+              >Call Office</a
+            >
+            <a
+              href="https://maps.app.goo.gl/2bQn6ZxLcqEhQNgu9"
+              class="px-5 py-2 bg-[#be924b] text-white rounded-lg hover:bg-[#a97c3f] transition text-center w-full"
+              >Get Direction</a
+            >
+            <a
+              href="https://indembassyphnompenh.gov.in/"
+              target="_blank"
+              class="px-5 py-2 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition w-full"
+              >View Site</a
+            >
           </div>
         </div>
       </div>
     </main>
 
-    <!-- Footer Component -->
-    <!-- #include "../components/footer.html" -->
+    <!-- footer -->
+    <footer
+      class="bg-[url('../../assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
+    >
+      <div class="bg-[#202D45]/60 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 sm:px-6"
+          >
+            <div
+              class="flex flex-col items-center sm:items-start text-center sm:text-left"
+            >
+              <img
+                src="../../assets/footer-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto mx-auto sm:mx-0"
+              />
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Explore Phnom Penh
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#cafes" class="hover:text-[#DFB777] transition"
+                    >Cafés & Restaurants</a
+                  >
+                </li>
+                <li>
+                  <a href="#museums" class="hover:text-[#DFB777] transition"
+                    >Museums & Tourist Sites</a
+                  >
+                </li>
+                <li>
+                  <a href="#vibe" class="hover:text-[#DFB777] transition"
+                    >Choose Your Vibe</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#DFB777] transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#dos-donts" class="hover:text-[#DFB777] transition"
+                    >Do's & Don'ts</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                About and Support
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#about" class="hover:text-[#DFB777] transition"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#DFB777] transition"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#faqs" class="hover:text-[#DFB777] transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#partnerships"
+                    class="hover:text-[#DFB777] transition"
+                    >Partnerships & Collaborations</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Stay Connected
+              </h4>
+
+              <div class="flex justify-center sm:justify-start gap-3 mb-6">
+                <a
+                  href="#facebook"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#instagram"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#email"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
+                </a>
+              </div>
+
+              <form
+                class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
+                />
+                <button
+                  type="submit"
+                  class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[#DFB777]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
+            >
+              <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
+              <div
+                class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
+              >
+                <a href="#terms" class="hover:text-[#DFB777] transition"
+                  >Term of Service</a
+                >
+                <a href="#privacy" class="hover:text-[#DFB777] transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
