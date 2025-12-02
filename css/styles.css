@@ -20,50 +20,37 @@ body {
 }
 
 /* Show Do’s */
-
-#tab-dos:checked ~ main .dosSection {
-  display: grid !important;
-  opacity: 1 !important;
+/* Default: show Do’s, hide Don’ts */
+.dosSection {
+  display: block;
+  opacity: 1;
 }
-#tab-dos:checked ~ main .dontSection {
-  display: none !important;
+
+.dontSection {
+  display: none;
+  opacity: 0;
+}
+
+/* When Don’ts tab is checked */
+#tab-donts:checked ~ main .dosSection {
+  display: none;
+  opacity: 0;
 }
 
 #tab-donts:checked ~ main .dontSection {
-  display: grid !important;
-  opacity: 1 !important;
-}
-#tab-donts:checked ~ main .dosSection {
-  display: none !important;
+  display: block;
+  opacity: 1;
 }
 
-/* Hide all steps */
-.step-box {
+/* When Do’s tab is checked (optional, but explicit) */
+#tab-dos:checked ~ main .dosSection {
+  display: block;
+  opacity: 1;
+}
+
+#tab-dos:checked ~ main .dontSection {
   display: none;
-}
-
-/* Show selected step */
-#step1:checked ~ .steps .content1 {
-  display: block;
-}
-#step2:checked ~ .steps .content2 {
-  display: block;
-}
-#step3:checked ~ .steps .content3 {
-  display: block;
-}
-#step4:checked ~ .steps .content4 {
-  display: block;
-}
-
-/* Step highlight */
-#step1:checked ~ .search-card .label1,
-#step2:checked ~ .search-card .label2,
-#step3:checked ~ .search-card .label3,
-#step4:checked ~ .search-card .label4 {
-  background: #1c3f5e;
-  color: white;
-  border-color: #dfb777;
+  opacity: 0;
 }
 
 
@@ -116,4 +103,3 @@ body {
 .card-link {
   @apply text-[#DFB777] font-semibold hover:text-[#1C3F5E] transition;
 }
-
