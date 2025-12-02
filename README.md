@@ -25,8 +25,8 @@
 phnompenh-compass/
 │
 ├── public/
-│ ├── index.html → main homepage
-│ ├── pages/ → write code of each pages in this folder except homepage write in index.html
+│ ├── ../../index.html → main homepage
+│ ├── pages/ → write code of each pages in this folder except homepage write in ../../index.html
 │ │ ├──explore-page/
 │ │ ├──choose-your-vibe-page/
 │ │ ├──services-page/

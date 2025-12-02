@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phnom Penh Compass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Raleway -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-[#FBFCF6] text-gray-800">
+    <!-- mobile menu toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+    <input type="radio" name="tab" id="tab-dos" class="hidden" checked />
+    <input type="radio" name="tab" id="tab-donts" class="hidden" />
+
+    <!-- dark overlay -->
+    <label
+      for="menu-toggle"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden peer-checked:block"
+    >
+    </label>
+
+    <!-- mobile menu penel -->
+    <div
+      class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 translate-x-full peer-checked:translate-x-0 transition-all duration-300 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center p-6 border-b border-gray-200"
+      >
+        <h2 class="text-xl font-bold">Menu</h2>
+        <label for="menu-toggle" class="cursor-pointer">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </label>
+      </div>
+
+      <div class="space-y-1">
+        <a
+          href="../../index.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Home</a
+        >
+        <a
+          href="../explore-page/explore.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Explore</a
+        >
+
+        <a
+          href="../choose-your-vibe-page/your-vibe.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Choose Your Vibe</a
+        >
+
+        <input type="checkbox" id="mobile-services" class="hidden peer/m" />
+        <label
+          for="mobile-services"
+          class="flex justify-between items-center px-6 py-4 border-b cursor-pointer hover:bg-gray-100"
+        >
+          Services
+          <i
+            class="fa-solid fa-chevron-down text-sm peer-checked/m:rotate-180 transition"
+          ></i>
+        </label>
+        <!-- services' dropdwon -->
+        <div
+          class="max-h-0 overflow-hidden peer-checked/m:max-h-96 transition-all"
+        >
+          <a
+            href="../services-page/emergency.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Emergency</a
+          >
+          <a
+            href="../services-page/hospitals.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Hospitals</a
+          >
+          <a
+            href="../services-page/embassies.html"
+            class="block px-10 py-3 border-b hover:bg-gray-100"
+            >Embassies</a
+          >
+          <a
+            href="../services-page/useful-app.html"
+            class="block px-10 py-3 hover:bg-gray-100"
+            >Useful Apps</a
+          >
+        </div>
+
+        <a
+          href="../dos-donts-page/dos-donts.html"
+          class="block px-6 py-4 border-b hover:bg-gray-100"
+          >Do's & Don'ts</a
+        >
+
+        <a href="#" class="flex items-center px-6 py-4 hover:bg-gray-100">
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white mr-3"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+          Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Desktop Navbar -->
+    <header class="fixed top-0 left-0 w-full z-30 bg-[#FBFCF6] shadow-sm">
+      <nav
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- logo -->
+        <a href="../../index.html">
+          <img
+            src="../../assets/phnompenh-compass-logo.svg"
+            alt="PP Compass Logo"
+          />
+        </a>
+
+        <!-- menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../explore-page/explore.html" class="hover:text-yellow-600"
+            >Explore</a
+          >
+          <a
+            href="../choose-your-vibe-page/your-vibe.html"
+            class="hover:text-yellow-600"
+            >Choose Your Vibe</a
+          >
+
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:text-yellow-600">
+              Services
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </button>
+
+            <!-- services's dropdown -->
+            <div
+              class="absolute left-0 top-full w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200"
+            >
+              <a
+                href="../services-page/emergency.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Emergency</a
+              >
+              <a
+                href="../services-page/hospitals.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Hospitals</a
+              >
+              <a
+                href="../services-page/embassies.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Embassies</a
+              >
+              <a
+                href="../services-page/useful-app.html"
+                class="block px-4 py-3 hover:bg-gray-100"
+                >Useful Apps</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="../dos-donts-page/dos-donts.html"
+            class="hover:text-yellow-600"
+            >Do's & Don'ts</a
+          >
+        </div>
+
+        <!-- user's profile -->
+        <div class="hidden md:flex items-center">
+          <div
+            class="w-8 h-8 bg-gray-700 rounded-full flex justify-center items-center text-white"
+          >
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+
+        <!-- mobile toggle button -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </label>
+      </nav>
+    </header>
+
+    <!-- content body -->
+    <main class="pt-40">
+      <div class="max-w-6xl mx-auto px-6 pb-24">
+        <h1 class="text-4xl font-bold text-center text-[#1C3F5E]">
+          Do’s & Don’ts
+        </h1>
+        <p class="text-center text-gray-600 mt-1">
+          Navigate Phnom Penh with Respect and Confidence
+        </p>
+
+        <!-- radie toggles -->
+        <div class="hidden">
+          <input type="radio" name="tab" id="tab-dos" checked />
+          <input type="radio" name="tab" id="tab-donts" />
+        </div>
+
+        <!-- tabs header Do's and Don'ts -->
+        <div class="flex justify-center mt-10">
+          <div class="flex w-full">
+            <label
+              for="tab-dos"
+              class="tab-dos flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#BFF3D9] border border-gray-200 text-[#1C3F5E]"
+            >
+              Do’s
+            </label>
+
+            <label
+              for="tab-donts"
+              class="tab-donts flex-1 text-center py-3 font-semibold rounded-t-xl cursor-pointer bg-[#F7B5B5] border border-gray-200 text-[#1C3F5E]"
+            >
+              Don’ts
+            </label>
+          </div>
+        </div>
+
+        <!-- DO’S SECTION -->
+
+        <div
+          class="dosSection hidden opacity-0 transition-opacity duration-200"
+        >
+          <div class="bg-[#DDF5E7] border border-[#C5E8D5] p-10 rounded-b-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
+              <!-- DO 1 -->
+              <div class="flex flex-col items-center text-center">
+                <i
+                  class="fa-solid fa-hands-praying text-5xl text-[#1C3F5E]"
+                ></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Greet with a “Sampeah”
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Put palms together and bow slightly to show respect.
+                </p>
+              </div>
+
+              <!-- do 2 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-language text-5xl text-[#1C3F5E]"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Learn simple Khmer phrases
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Locals appreciate small efforts like “Hello” or “Thank you”.
+                </p>
+              </div>
+
+              <!-- do 3 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-shoe-prints text-5xl text-[#1C3F5E]"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Remove shoes before entering homes
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Always take shoes off when entering someone’s house.
+                </p>
+              </div>
+
+              <!-- do 4 -->
+              <div class="flex flex-col items-center text-center">
+                <i
+                  class="fa-solid fa-hand-holding-heart text-5xl text-[#1C3F5E]"
+                ></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Show respect to elders & monks
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Greet politely and avoid standing higher than monks.
+                </p>
+              </div>
+
+              <!-- do 5 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-tshirt text-5xl text-[#1C3F5E]"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Dress modestly at temples
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Cover shoulders & knees when visiting religious sites.
+                </p>
+              </div>
+
+              <!-- do 6 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-recycle text-5xl text-[#1C3F5E]"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Dispose trash properly
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Help keep Phnom Penh clean by using bins.
+                </p>
+              </div>
+
+              <!-- do 7 -->
+              <div class="flex flex-col items-center text-center">
+                <i
+                  class="fa-solid fa-helmet-safety text-5xl text-[#1C3F5E]"
+                ></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Wear a helmet when riding motos
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Safety first — and it's required by law.
+                </p>
+              </div>
+
+              <!-- do 8 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-handshake text-5xl text-[#1C3F5E]"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Negotiate politely
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Bargaining is normal — just keep it friendly.
+                </p>
+              </div>
+
+              <!-- do 9 -->
+              <div class="flex flex-col items-center text-center">
+                <i
+                  class="fa-solid fa-money-bill-wave text-5xl text-[#1C3F5E]"
+                ></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Carry small cash
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Many local shops only accept small bills.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DON’TS SECTION -->
+        <div
+          class="dontSection hidden opacity-0 transition-opacity duration-500"
+        >
+          <div class="bg-[#FAD4D4] border border-[#F5B8B8] rounded-b-xl p-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10">
+              <!-- dont 1 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-ban text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t touch anyone’s head
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  The head is considered sacred in Khmer culture.
+                </p>
+              </div>
+
+              <!-- dont 2 -->
+              <div class="flex flex-col items-center text-center">
+                <i
+                  class="fa-solid fa-shoe-prints text-5xl text-red-600 rotate-180"
+                ></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t point feet at people
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Feet are seen as unclean — avoid pointing or touching.
+                </p>
+              </div>
+
+              <!-- dont 3 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-hand text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t touch monks (especially women)
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Physical contact with monks is inappropriate.
+                </p>
+              </div>
+
+              <!-- dont 4 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-trash text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t litter in public
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Keep the city clean and dispose trash properly.
+                </p>
+              </div>
+
+              <!-- dont 5 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-volume-high text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t raise your voice
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Loud or aggressive tone is considered rude.
+                </p>
+              </div>
+
+              <!-- dont 6 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-shoe-prints text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t enter temples with shoes
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Always remove shoes at temples and sacred places.
+                </p>
+              </div>
+
+              <!-- dont 7 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-heart text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t show excessive PDA
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Public affection is not culturally accepted.
+                </p>
+              </div>
+
+              <!-- dont 8 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-gopuram text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t touch sacred objects
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Always ask before touching religious items.
+                </p>
+              </div>
+
+              <!-- dont 9 -->
+              <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-angry text-5xl text-red-600"></i>
+                <h3 class="text-lg font-semibold text-[#1C3F5E] mt-3">
+                  Don’t show anger in public
+                </h3>
+                <p class="text-gray-600 text-sm leading-tight">
+                  Staying calm is a sign of respect in Khmer culture.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer
+      class="bg-[url('../../assets/footer-bakcground.svg')] bg-cover bg-center bg-no-repeat mt-auto"
+    >
+      <div class="bg-[#202D45]/60 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-10 sm:px-6"
+          >
+            <div
+              class="flex flex-col items-center sm:items-start text-center sm:text-left"
+            >
+              <img
+                src="../../assets/footer-logo.svg"
+                alt="Phnom Penh Compass Logo"
+                class="h-auto w-auto mx-auto sm:mx-0"
+              />
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Explore Phnom Penh
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#cafes" class="hover:text-[#DFB777] transition"
+                    >Cafés & Restaurants</a
+                  >
+                </li>
+                <li>
+                  <a href="#museums" class="hover:text-[#DFB777] transition"
+                    >Museums & Tourist Sites</a
+                  >
+                </li>
+                <li>
+                  <a href="#vibe" class="hover:text-[#DFB777] transition"
+                    >Choose Your Vibe</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-[#DFB777] transition"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a href="#dos-donts" class="hover:text-[#DFB777] transition"
+                    >Do's & Don'ts</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                About and Support
+              </h4>
+              <ul class="space-y-2 text-white text-center sm:text-left">
+                <li>
+                  <a href="#about" class="hover:text-[#DFB777] transition"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-[#DFB777] transition"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#faqs" class="hover:text-[#DFB777] transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#partnerships"
+                    class="hover:text-[#DFB777] transition"
+                    >Partnerships & Collaborations</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="text-[#DFB777] font-semibold text-lg mb-4 text-center sm:text-left"
+              >
+                Stay Connected
+              </h4>
+
+              <div class="flex justify-center sm:justify-start gap-3 mb-6">
+                <a
+                  href="#facebook"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-facebook-f text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#instagram"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-brands fa-instagram text-[#2C3E50]"></i>
+                </a>
+                <a
+                  href="#email"
+                  class="w-10 h-10 rounded-full bg-[#DFB777] flex items-center justify-center hover:bg-[#be924b] transition"
+                >
+                  <i class="fa-regular fa-envelope text-[#2C3E50]"></i>
+                </a>
+              </div>
+
+              <form
+                class="flex flex-col sm:flex-row justify-center sm:justify-start w-full max-w-md mx-auto sm:mx-0"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="flex-1 px-4 py-2 rounded-t sm:rounded-l sm:rounded-tr-none bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#DFB777] w-full"
+                />
+                <button
+                  type="submit"
+                  class="px-3 py-2 bg-[#DFB777] text-[#2C3E50] font-semibold rounded-b sm:rounded-r sm:rounded-bl-none hover:bg-[#be924b] transition w-full sm:w-auto"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-[#DFB777]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left"
+            >
+              <p>© 2025 Phnom Penh Compass. All rights reserved.</p>
+              <div
+                class="flex flex-wrap justify-center md:justify-end gap-6 mt-4 md:mt-0"
+              >
+                <a href="#terms" class="hover:text-[#DFB777] transition"
+                  >Term of Service</a
+                >
+                <a href="#privacy" class="hover:text-[#DFB777] transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
